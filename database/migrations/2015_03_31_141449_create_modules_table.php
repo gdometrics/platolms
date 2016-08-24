@@ -17,7 +17,6 @@ class CreateModulesTable extends Migration
 		Schema::create('modules', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('account_id')->unsigned();
             $table->mediumInteger('author_id')->unsigned();
             $table->string('title');
             $table->string('sub_title')->nullable();

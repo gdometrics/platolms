@@ -14,11 +14,13 @@ class CreateCourseUserTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('course_user', function(Blueprint $table)
+		Schema::create('course_semester_user', function(Blueprint $table)
 		{
             $table->increments('id');
             $table->integer('course_id')->unsigned()->index();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->integer('semester_id')->unsigned()->index();
+            $table->foreign('semester_id')->references('id')->on('semesters')->onDelete('cascade');
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

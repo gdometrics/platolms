@@ -17,7 +17,6 @@ class CreateAttemptsTable extends Migration
 		Schema::create('attempts', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('account_id')->unsigned();
             $table->mediumInteger('question_id')->unsigned();
             $table->mediumInteger('response')->unsigned();
             $table->text('content');

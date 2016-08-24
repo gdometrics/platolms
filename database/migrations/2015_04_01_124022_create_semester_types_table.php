@@ -17,7 +17,6 @@ class CreateSemesterTypesTable extends Migration
 		Schema::create('semester_types', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('account_id')->unsigned();
             $table->string('title');
             $table->date('start');
             $table->date('end');

@@ -17,7 +17,6 @@ class CreateDropboxesTable extends Migration
 		Schema::create('dropboxes', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('account_id')->unsigned();
             $table->integer('lesson_id')->unsigned();
             $table->mediumInteger('assignment_id')->unsigned();
             $table->mediumInteger('user_id')->unsigned();

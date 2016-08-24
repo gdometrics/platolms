@@ -17,7 +17,6 @@ class CreateRecordsTable extends Migration
 		Schema::create('records', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('account_id')->unsigned();
             $table->mediumInteger('user_id')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->mediumInteger('grade')->unsigned();

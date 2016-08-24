@@ -17,7 +17,6 @@ class CreateFinalsTable extends Migration
 		Schema::create('finals', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('account_id')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->string('title');
             $table->date('due')->nullable();

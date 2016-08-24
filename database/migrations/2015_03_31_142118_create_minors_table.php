@@ -17,7 +17,6 @@ class CreateMinorsTable extends Migration
 		Schema::create('minors', function(Blueprint $table)
 		{
 			$table->increments('id');
- 			$table->integer('account_id')->unsigned();
             $table->string('name')->unique();
             $table->string('slug')->unique();
 			$table->softDeletes();

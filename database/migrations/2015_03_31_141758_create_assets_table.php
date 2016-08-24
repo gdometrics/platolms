@@ -17,7 +17,6 @@ class CreateAssetsTable extends Migration
 		Schema::create('assets', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('account_id')->unsigned();
             $table->mediumInteger('asset_type_id')->unsigned();
             $table->text('content')->nullable();
             $table->softDeletes();
