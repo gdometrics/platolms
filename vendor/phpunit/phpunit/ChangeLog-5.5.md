@@ -2,6 +2,16 @@
 
 All notable changes of the PHPUnit 5.5 release series are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [5.5.4] - 2016-08-26
+
+New release of PHPUnit as PHAR with updated dependencies
+
+## [5.5.3] - 2016-08-25
+
+### Fixed
+
+* Fixed [#2270](https://github.com/sebastianbergmann/phpunit/pull/2270): Allow `createPartialMock()` to not mock any methods
+
 ## [5.5.2] - 2016-08-18
 
 ### Changed
@@ -30,6 +40,8 @@ All notable changes of the PHPUnit 5.5 release series are documented in this fil
 
 * An `AssertionError` raised by an `assert()` in the tested code now causes the test to be interpreted as a failure instead of an error
 
+[5.5.4]: https://github.com/sebastianbergmann/phpunit/compare/5.5.3...5.5.4
+[5.5.3]: https://github.com/sebastianbergmann/phpunit/compare/5.5.2...5.5.3
 [5.5.2]: https://github.com/sebastianbergmann/phpunit/compare/5.5.1...5.5.2
 [5.5.1]: https://github.com/sebastianbergmann/phpunit/compare/5.5.0...5.5.1
 [5.5.0]: https://github.com/sebastianbergmann/phpunit/compare/5.4...5.5.0

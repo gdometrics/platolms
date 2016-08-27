@@ -12,8 +12,7 @@
         "laravel/scout": "^1.0",
         "laravel/socialite": "^2.0",
         "intervention/image": "^2.3",
-        "laracasts/flash": "^2.0",
-        "bican/roles": "2.1.*"
+        "laracasts/flash": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -149,7 +149,6 @@ return [
         Illuminate\Database\DatabaseServiceProvider::class,
         Illuminate\Encryption\EncryptionServiceProvider::class,
         Illuminate\Filesystem\FilesystemServiceProvider::class,
-        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
@@ -167,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Bican\Roles\RolesServiceProvider::class,
+        //
 
         /*
          * Application Service Providers...
