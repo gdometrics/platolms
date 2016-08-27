@@ -34,7 +34,7 @@ class CreateCourseSemesterUserTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('course_user');
+		Schema::drop('course_semester_user');
 	}
 
 }
