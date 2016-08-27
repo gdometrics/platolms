@@ -15,9 +15,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'first' => $faker->firstName,
+        'last' => $faker->lastName,
+        'bio' => $faker->text,
+        'img' => $faker->imageUrl(200, 200, 'people', true, 'PlatoLMS', true),
+        'question' => $faker->sentence,
+        'answer' => $faker->word,
+        'address' => $faker->streetAddress,
+        'address_2' => $faker->secondaryAddress,
+        'city' => $faker->city,
+        'postal' => $faker->randomNumber(5),
+        'state' => $faker->stateAbbr,
+        'country' => $faker->country,
+        'timezone' => $faker->timezone,
+        'phone' => $faker->phoneNumber,
+        'ip' => $faker->ipv4,
         'remember_token' => str_random(10),
     ];
 });
