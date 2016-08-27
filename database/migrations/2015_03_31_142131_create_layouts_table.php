@@ -16,7 +16,7 @@ class CreateLayoutsTable extends Migration
 	{
 		Schema::create('layouts', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->string('name');
             $table->string('columns');
             $table->string('sidebar_orientation')->nullable();

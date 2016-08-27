@@ -16,7 +16,7 @@ class CreateCatalogueSemesterTable extends Migration
 	{
 		Schema::create('catalogue_semester', function(Blueprint $table)
 		{
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->integer('catalogue_id')->unsigned()->index();
             $table->foreign('catalogue_id')->references('id')->on('catalogues')->onDelete('cascade');
             $table->integer('semester_id')->unsigned()->index();

@@ -16,7 +16,7 @@ class CreateCourseRevisionsTable extends Migration
 	{
 		Schema::create('course_revisions', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->string('title');
             $table->text('description');

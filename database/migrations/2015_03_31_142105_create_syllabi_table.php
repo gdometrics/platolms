@@ -16,7 +16,7 @@ class CreateSyllabiTable extends Migration
 	{
 		Schema::create('syllabi', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->text('content')->nullable();
             $table->text('attachment')->nullable();

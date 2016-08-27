@@ -16,7 +16,7 @@ class CreateAssetPageTable extends Migration
 	{
 		Schema::create('asset_page', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->integer('asset_id')->unsigned()->index();
             $table->foreign('asset_id')->references('id')->on('assets')->onDelete('cascade');
             $table->integer('page_id')->unsigned()->index();

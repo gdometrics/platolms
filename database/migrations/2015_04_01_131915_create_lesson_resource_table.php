@@ -16,7 +16,7 @@ class CreateLessonResourceTable extends Migration
 	{
 		Schema::create('lesson_resource', function(Blueprint $table)
 		{
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->integer('lesson_id')->unsigned()->index();
             $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
             $table->integer('resource_id')->unsigned()->index();

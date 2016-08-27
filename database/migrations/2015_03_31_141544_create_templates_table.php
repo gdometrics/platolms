@@ -16,7 +16,7 @@ class CreateTemplatesTable extends Migration
 	{
 		Schema::create('templates', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->mediumInteger('author_id')->unsigned();
             $table->mediumInteger('revision_id')->unsigned();
             $table->string('name')->unique();

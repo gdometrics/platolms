@@ -14,7 +14,7 @@ class CreateSubscriptionsTable extends Migration
     public function up()
     {
         Schema::create('subscriptions', function ($table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->integer('user_id');
             $table->string('name');
             $table->string('stripe_id');

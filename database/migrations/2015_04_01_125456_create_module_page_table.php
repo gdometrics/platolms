@@ -16,7 +16,7 @@ class CreateModulePageTable extends Migration
 	{
 		Schema::create('module_page', function(Blueprint $table)
 		{
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->integer('module_id')->unsigned()->index();
             $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
             $table->integer('page_id')->unsigned()->index();

@@ -16,7 +16,7 @@ class CreateCataloguesTable extends Migration
 	{
 		Schema::create('catalogues', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->string('title');
             $table->date('year_start');
             $table->date('year_end');

@@ -16,7 +16,7 @@ class CreateQuestionTypesTable extends Migration
 	{
 		Schema::create('question_types', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->string('title');
 			$table->timestamps();
 		});

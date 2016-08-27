@@ -16,7 +16,7 @@ class CreateCourseFinalTable extends Migration
 	{
 		Schema::create('course_final', function(Blueprint $table)
 		{
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->integer('course_id')->unsigned()->index();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->integer('final_id')->unsigned()->index();

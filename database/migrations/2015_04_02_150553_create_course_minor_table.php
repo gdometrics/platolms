@@ -16,7 +16,7 @@ class CreateCourseMinorTable extends Migration
 	{
 		Schema::create('course_minor', function(Blueprint $table)
 		{
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->integer('course_id')->unsigned()->index();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->integer('minor_id')->unsigned()->index();

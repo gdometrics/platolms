@@ -16,7 +16,7 @@ class CreateTranscriptsTable extends Migration
 	{
 		Schema::create('transcripts', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->mediumInteger('user_id')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->mediumInteger('grade')->unsigned();

@@ -16,7 +16,7 @@ class CreateSemesterSemesterTypeTable extends Migration
 	{
 		Schema::create('semester_semester_type', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->integer('semester_id')->unsigned()->index();
             $table->foreign('semester_id')->references('id')->on('semesters')->onDelete('cascade');
             $table->integer('semester_types_id')->unsigned()->index();

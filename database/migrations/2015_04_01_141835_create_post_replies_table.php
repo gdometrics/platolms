@@ -16,7 +16,7 @@ class CreatePostRepliesTable extends Migration
 	{
 		Schema::create('post_replies', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->mediumInteger('author_id')->unsigned();
             $table->mediumInteger('post_id')->unsigned();
             $table->string('title');

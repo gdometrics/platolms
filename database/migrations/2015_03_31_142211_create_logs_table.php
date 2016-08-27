@@ -16,7 +16,7 @@ class CreateLogsTable extends Migration
 	{
 		Schema::create('logs', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->mediumInteger('user_id')->unsigned();
             $table->text('activity');
 			$table->timestamps();

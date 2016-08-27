@@ -16,7 +16,7 @@ class CreateConversationsTable extends Migration
 	{
 		Schema::create('conversations', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->integer('lesson_id')->unsigned();
             $table->mediumInteger('author_id')->unsigned();
             $table->string('title');

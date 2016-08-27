@@ -16,7 +16,7 @@ class CreateThemeRevisionsTable extends Migration
 	{
 		Schema::create('theme_revisions', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->integer('theme_id')->unsigned();
             $table->string('title');
             $table->text('description');

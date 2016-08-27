@@ -16,7 +16,7 @@ class CreateMinorsTable extends Migration
 	{
 		Schema::create('minors', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->string('name')->unique();
             $table->string('slug')->unique();
 			$table->softDeletes();

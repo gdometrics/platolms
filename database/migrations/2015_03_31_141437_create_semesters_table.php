@@ -16,7 +16,7 @@ class CreateSemestersTable extends Migration
 	{
 		Schema::create('semesters', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->mediumInteger('semester_type')->unsigned();
 	        $table->softDeletes();
             $table->timestamps();        

@@ -16,7 +16,7 @@ class CreateTestsTable extends Migration
 	{
 		Schema::create('tests', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->integer('lesson_id')->unsigned();
             $table->string('title');
             $table->date('due')->nullable();

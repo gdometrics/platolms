@@ -16,7 +16,7 @@ class CreateTestQuestionTable extends Migration
 	{
 		Schema::create('question_test', function(Blueprint $table)
 		{
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->integer('question_id')->unsigned()->index();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->integer('test_id')->unsigned()->index();

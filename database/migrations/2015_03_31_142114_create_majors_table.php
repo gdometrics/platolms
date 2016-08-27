@@ -16,7 +16,7 @@ class CreateMajorsTable extends Migration
 	{
 		Schema::create('majors', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
             $table->string('name')->unique();
             $table->string('slug')->unique();
 			$table->softDeletes();

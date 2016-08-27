@@ -13,7 +13,8 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) 
+        {
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->string('slug')->unique();
