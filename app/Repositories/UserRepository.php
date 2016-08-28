@@ -10,6 +10,7 @@ class UserRepository extends Repository
 	 */
 	public function __construct()
 	{
+		$this->table = 'users';
 		$this->model = 'App\Models\User';
 	}
 
@@ -19,9 +20,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUser($userId, $options = [])
+	public function getUser($userIdOrIds, $options = [])
 	{
-		return $this->findOne($this->model, $userId, $options);
+		return $this->find($this->model, $userIdOrIds, $options);
 	}
 
 	/**
@@ -30,9 +31,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUserByEmail($userEmail, $options = [])
+	public function getUserBy($field, $value, $options = [])
 	{
-		return $this->findOneBy($this->model, $userEmail, 'email', $options);
+		return $this->findOneBy($this->model, $field, $value, $options);
 	}
 
 	/**
@@ -41,9 +42,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUsers(array $userIds = null, $options = [])
+	public function getUsersByIds(array $userIds = null, $options = [])
 	{
-		return $this->findAll($this->model, $userIds, $options);
+		return $this->getUsers($userIds, $options);
 	}
 
 	/**
@@ -52,9 +53,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUsersByEmail(array $userEmails, $options = [])
+	public function getUsers(array $scopes, $options = [])
 	{
-		return $this->findAllBy($this->model, $userEmails, 'email', $options);
+		return $this->findAllBy($this->table, $scopes, $options);
 	}
 
 	/**

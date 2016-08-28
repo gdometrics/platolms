@@ -8,9 +8,9 @@ class Repository
 	/**
 	 * Retrieve a single entity
 	 */
-    public function findOne($model, $id, array $options)
+    public function find($model, $idOrIds, array $options)
     {
-    	return $model::find($id);
+    	return $model::find($idOrIds);
     }
 
 	/**
@@ -18,7 +18,7 @@ class Repository
 	 */
     public function findOneBy($model, $field, $value, array $options)
     {
-    	
+    	return $model::where($field, $value)->first();
     }
 
 	/**
@@ -26,15 +26,17 @@ class Repository
 	 */
     public function findAll($model, array $options)
     {
-
+		//orderBy('name', 'desc')
+        //take(10)
+        return $model::all();
     }
- 
+
 	/**
 	 * Retrieve a collection of records by 
 	 */
-    public function findAllBy($model, $field, $value, array $options)
+    public function findAllBy($table, $scopes, array $options)
     {
-    	
+    	return \DB::table($table)->where($scopes)->get();
     }
 
 	/**
@@ -64,9 +66,9 @@ class Repository
 	/**
 	 * Delete the record
 	 */
-    public function delete($model, $id)
+    public function delete($model, $idOrIds)
     {
-    	
+    	return $model::destroy($idOrIds);
     }
 
 }
