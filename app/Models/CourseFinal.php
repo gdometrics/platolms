@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SitePage extends Model 
+class CourseFinal extends Model 
 {
 
     /**
@@ -12,7 +12,7 @@ class SitePage extends Model
      *
      * @var string
      */
-    protected $table = 'site_pages';
+    protected $table = 'finals';
     
     /**
      * The attributes that are mass assignable.
@@ -20,7 +20,7 @@ class SitePage extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'slug', 'content',
+        'course_id', 'title', 'due', 'possible',
     ];
 
     /**
