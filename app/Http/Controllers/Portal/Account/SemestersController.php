@@ -1,13 +1,13 @@
 <?php 
 
-namespace App\Http\Controllers\Portal\Catalogue;
+namespace App\Http\Controllers\Portal\Account;
 
-class CataloguesController extends Controller
+class SemestersController extends Controller
 {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Catalogues Controller
+	| Semesters Controller
 	|--------------------------------------------------------------------------
 	*/
 

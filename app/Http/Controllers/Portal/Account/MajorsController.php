@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Portal\Catalogue;
+namespace App\Http\Controllers\Portal\Account;
 
 class MajorsController extends Controller
 {
