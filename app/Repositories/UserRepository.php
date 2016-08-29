@@ -20,9 +20,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUser($userIdOrIds, $options = [])
+	public function getUser($userIdOrIds)
 	{
-		return $this->find($this->model, $userIdOrIds, $options);
+		return $this->find($this->model, $userIdOrIds);
 	}
 
 	/**
@@ -31,9 +31,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUserBy($field, $value, $options = [])
+	public function getUserBy($field, $value)
 	{
-		return $this->findOneBy($this->model, $field, $value, $options);
+		return $this->findOneBy($this->model, $field, $value);
 	}
 
 	/**
@@ -42,9 +42,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUsersByIds(array $userIds = null, $options = [])
+	public function getUsersByIds(array $userIds = null)
 	{
-		return $this->getUsers($userIds, $options);
+		return $this->getUsers($userIds);
 	}
 
 	/**
@@ -53,9 +53,9 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUsers(array $scopes, $options = [])
+	public function getUsers(array $scopes)
 	{
-		return $this->findAllBy($this->table, $scopes, $options);
+		return $this->findAllBy($this->table, $scopes);
 	}
 
 	/**

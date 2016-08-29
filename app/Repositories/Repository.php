@@ -8,7 +8,7 @@ class Repository
 	/**
 	 * Retrieve a single entity
 	 */
-    public function find($model, $idOrIds, array $options)
+    public function find($model, $idOrIds)
     {
     	return $model::find($idOrIds);
     }
@@ -16,7 +16,7 @@ class Repository
 	/**
 	 * Retrieve a single entity by values
 	 */
-    public function findOneBy($model, $field, $value, array $options)
+    public function findOneBy($model, $field, $value)
     {
     	return $model::where($field, $value)->first();
     }
@@ -24,17 +24,15 @@ class Repository
 	/**
 	 * Retrieve a collection of records
 	 */
-    public function findAll($model, array $options)
+    public function findAll($model)
     {
-		//orderBy('name', 'desc')
-        //take(10)
         return $model::all();
     }
 
 	/**
 	 * Retrieve a collection of records by 
 	 */
-    public function findAllBy($table, $scopes, array $options)
+    public function findAllBy($table, $scopes)
     {
     	return \DB::table($table)->where($scopes)->get();
     }
@@ -42,7 +40,7 @@ class Repository
 	/**
 	 * Retrieve paginated records
 	 */
-    public function paginate($model, $perPage = 15, array $options)
+    public function paginate($model, $perPage = 15)
     {
     	
     }
