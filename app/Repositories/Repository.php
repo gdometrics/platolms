@@ -40,9 +40,14 @@ class Repository
 	/**
 	 * Retrieve paginated records
 	 */
-    public function paginate($model, $perPage = 15)
+    public function paginate($table, $scopes, $perPage, $withTrashed)
     {
-    	
+    	if ($withTrashed)
+    	{
+	    	return \DB::table($table)->where($scopes)->withTrashed()->paginate($perPage);
+    	}
+
+    	return \DB::table($table)->where($scopes)->paginate($perPage);
     }
  
 	/**

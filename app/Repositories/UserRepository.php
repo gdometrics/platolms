@@ -64,6 +64,17 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
+	public function paginateUsers(array $scopes, $limit = 15, $withTrashed = false)
+	{
+		return $this->paginate($this->table, $scopes, $limit, $withTrashed);
+	}
+
+	/**
+	 * Get a validator for an incoming registration request.
+	 *
+	 * @param  array  $data
+	 * @return \Illuminate\Contracts\Validation\Validator
+	 */
 	public function createUser(array $userData)
 	{
 		return $this->create($this->model, $userData);
