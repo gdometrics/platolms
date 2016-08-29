@@ -44,7 +44,7 @@ class UserRepository extends Repository
 	 */
 	public function getUsersByIds(array $userIds = null)
 	{
-		return $this->getUsers($userIds);
+		return $this->getUser($userIds);
 	}
 
 	/**
@@ -77,7 +77,7 @@ class UserRepository extends Repository
 	 */
 	public function createUser(array $userData)
 	{
-		return $this->create($this->model, $userData);
+		return $this->create($this->table, $userData);
 	}
 
 	/**
@@ -91,11 +91,11 @@ class UserRepository extends Repository
 		$usersCreated = [];
 		foreach ($usersData as $userData)
 		{
-			$user = $this->createUser($this->model, $userData);
+			$user = $this->createUser($this->table, $userData);
 			array_push($usersCreated, $user);
 		}
 
-		return $usersCreated;
+		return $this->getUsersByIds($usersCreated);
 	}
 
 	/**

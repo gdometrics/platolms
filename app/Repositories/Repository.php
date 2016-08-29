@@ -53,9 +53,9 @@ class Repository
 	/**
 	 * Create a record
 	 */
-    public function create($model, array $data)
+    public function create($table, array $data)
     {
-    	
+    	return \DB::table($table)->insertGetId($data);
     }
  
 	/**
