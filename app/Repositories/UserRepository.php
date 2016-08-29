@@ -106,7 +106,7 @@ class UserRepository extends Repository
 	 */
 	public function updateUser($userId, array $userData)
 	{
-		return $this->update($userId, $userData);
+		return $this->update($this->model, $userId, $userData);
 	}
 
 	/**
@@ -120,7 +120,7 @@ class UserRepository extends Repository
 		$usersUpdated = [];
 		foreach ($usersData as $userData)
 		{
-			$user = $this->updateUser($userData);
+			$user = $this->updateUser($userData->id, $userData);
 			array_push($usersUpdated, $user);
 		}
 

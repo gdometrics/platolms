@@ -63,9 +63,9 @@ class Repository
 	 */
     public function update($model, $id, array $data)
     {
-    	
+    	return $model::where('id', $id)->update($data);
     }
- 
+
 	/**
 	 * Delete the record
 	 */
