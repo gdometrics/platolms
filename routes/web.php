@@ -7,7 +7,7 @@
 */
 
 // Public Routes
-Route::get('/', 'WelcomeController@index')->name('welcome')
+Route::get('/', 'WelcomeController@index')->name('welcome');
 
 // Public Blog Routes
 
@@ -16,7 +16,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function (
 {
 
 	// Accounts
-	Route::group(['namespace' => 'Accounts']), function () 
+	Route::group(['namespace' => 'Accounts'], function () 
 	{
 		// Invoices
 		Route::resource('invoices', 'InvoicesController');
@@ -28,10 +28,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function (
 		Route::resource('transcripts', 'TranscriptsController');
 		// Users
 		Route::resource('users', 'UsersController');
-	}
+	});
 
 	// Blog
-	Route::group(['namespace' => 'Blogs']), function () 
+	Route::group(['namespace' => 'Blogs'], function () 
 	{
 		// Categories
 		Route::resource('categories', 'CategoriesController');
@@ -41,10 +41,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function (
 		Route::resource('replies', 'RepliesController');
 		// Tags
 		Route::resource('tags', 'TagsController');
-	}
+	});
 
 	// Catalogue
-	Route::group(['namespace' => 'Blogs']), function () 
+	Route::group(['namespace' => 'Blogs'], function () 
 	{
 		// Catalogues
 		Route::resource('catalogues', 'CataloguesController');
@@ -54,10 +54,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function (
 		Route::resource('minors', 'MinorsController');
 		// Semesters
 		Route::resource('semesters', 'SemestersController');
-	}
+	});
 
 	// Courses
-	Route::group(['namespace' => 'Blogs']), function () 
+	Route::group(['namespace' => 'Blogs'], function () 
 	{
 		// Articles
 		Route::resource('articles', 'ArticlesController');
@@ -89,7 +89,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function (
 		Route::resource('templates', 'TemplatesController');
 		// Testing
 		Route::resource('testing', 'TestingsController');
-	}
+	});
 
 });
 
@@ -101,7 +101,7 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function
 	Route::get('/home', 'HomeController@index')->name('home');
 
 	// Account
-	Route::group(['namespace' => 'Account']), function () 
+	Route::group(['namespace' => 'Account'], function () 
 	{
 		// Catalogues
 		Route::resource('catalogues', 'CataloguesController', ['only' => ['index', 'show']]);
@@ -109,10 +109,10 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function
 		Route::resource('majors', 'MajorsController', ['only' => ['index', 'show']]);
 		// Semesters
 		Route::resource('semesters', 'SemestersController', ['only' => ['index', 'show']]);
-	}
+	});
 
 	// Courses
-	Route::group(['namespace' => 'Courses']), function () 
+	Route::group(['namespace' => 'Courses'], function () 
 	{
 		// Articles
 		Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show']]);
@@ -144,7 +144,7 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function
 		Route::resource('templates', 'TemplatesController', ['only' => ['index', 'show']]);
 		// Testing
 		Route::resource('testing', 'TestingsController', ['only' => ['index', 'show']]);
-	}
+	});
 
 });
 
