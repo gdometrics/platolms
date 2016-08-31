@@ -107,6 +107,8 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function
 		Route::resource('catalogues', 'CataloguesController', ['only' => ['index', 'show']]);
 		// Majors
 		Route::resource('majors', 'MajorsController', ['only' => ['index', 'show']]);
+		// Profiles
+		Route::resource('profiles', 'ProfilesController', ['only' => ['show', 'edit', 'update']]);
 		// Semesters
 		Route::resource('semesters', 'SemestersController', ['only' => ['index', 'show']]);
 	});
@@ -147,7 +149,6 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function
 	});
 
 });
-
 
 Route::get('/home', 'HomeController@index');
 
