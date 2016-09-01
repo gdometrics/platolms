@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Portal;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,22 +18,12 @@ class HomeController extends Controller
     }
 
     /**
-     * Logged in users home page on the main site
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
     public function dashboard()
     {
-        return view('portal/dashboard');
+        return view('admin/dashboard');
     }    
 }

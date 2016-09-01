@@ -15,6 +15,9 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI')], function () 
 {
 
+	// Dashboard
+	Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
+
 	// Accounts
 	Route::group(['namespace' => 'Accounts'], function () 
 	{
@@ -96,6 +99,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI')], function ()
 // Logged In User Routes
 Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_URI')], function () 
 {
+
+	// Dashboard
+	Route::get('/', 'HomeController@dashboard')->name('portal.dashboard');
 
 	// Account
 	Route::group(['namespace' => 'Accounts'], function () 
