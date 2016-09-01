@@ -97,9 +97,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function (
 Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function () 
 {
 
-	// Dashboard
-	Route::get('/home', 'HomeController@index')->name('home');
-
 	// Account
 	Route::group(['namespace' => 'Accounts'], function () 
 	{
@@ -148,7 +145,7 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function
 
 });
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'Portal\HomeController@index')->name('home');
 
 // Auth Routes
 Auth::routes();
