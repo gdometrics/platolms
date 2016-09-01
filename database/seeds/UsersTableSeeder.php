@@ -14,10 +14,10 @@ class UsersTableSeeder extends Seeder
     	$numberOfPeopleToSeed = 30;
 
     	// Create Users
-	    factory(App\User::class, $numberOfPeopleToSeed)->create();
+	    factory(App\Models\User::class, $numberOfPeopleToSeed)->create();
 
 	    // For easy dev tests only
-        $jason = App\User::create([
+        $jason = App\Models\User::create([
             'id' => $numberOfPeopleToSeed + 1,
             'email' => 'jasonherndon86@gmail.com',
             'password' => bcrypt('snuffles'),
