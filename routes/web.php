@@ -12,7 +12,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 // Public Blog Routes
 
 // Logged In User Routes
-Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function () 
+Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI')], function () 
 {
 
 	// Accounts
@@ -94,7 +94,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_NAME')], function (
 });
 
 // Logged In User Routes
-Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_NAME')], function () 
+Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_URI')], function () 
 {
 
 	// Account
