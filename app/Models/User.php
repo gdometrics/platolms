@@ -42,4 +42,21 @@ class User extends Authenticatable
     protected $dates = [
         'trial_ends_at'
     ];
+
+    /**
+     * Get the role of the user
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'roles_users');
+    }
+
+    /**
+     * Get the highest role that a user has
+     */
+    public function getHighestRole()
+    {
+        return $this->belongsToMany('App\Models\Role', 'roles_users')->orderBy('id')->first();
+    }
+
 }

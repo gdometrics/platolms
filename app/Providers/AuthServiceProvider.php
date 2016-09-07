@@ -25,6 +25,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Define User Access to Admin Portal
+        Gate::define('admin-access', function ($user) 
+        {
+            return $user->getHighestRole()->name !== env('STUDENT_LABEL', 'Student');
+        });
+
+        // Define User Access to Student Portal
+        Gate::define('portal-access', function ($user) 
+        {
+            return $user->getHighestRole()->name == env('STUDENT_LABEL', 'Student');
+        });
+
     }
 }

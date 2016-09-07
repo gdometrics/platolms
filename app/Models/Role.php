@@ -37,4 +37,13 @@ class Role extends Model
      */
     protected $dates = [];
 
+    /**
+     * Get the role of the user
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+
 }
