@@ -2,4 +2,6 @@
 
     @yield('content')
 
+    @yield('sidebar')
+
 @include('layouts.footer')

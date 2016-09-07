@@ -1,9 +1,148 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Bitter|Open+Sans);
 
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Styles
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: $font-family-serif;
+}
+
+.page-header {
+	font-weight:800;
+}
+
+// Bootstrap Overrides
+.panel {
+	border-radius: 0px;
+}
+
+.navbar-default {
+	background: $carbon-grey;
+	margin-bottom:0px;
+	border: none;
+
+	.navbar-brand {
+		font-family: $font-family-sans-serif;
+		font-weight:600;
+	    letter-spacing: 3px;
+	    text-transform: uppercase;
+		color:#fff;
+			&:hover {
+				color:darken(#fff, 20%);
+			}
+
+			span {
+				color:darken(#fff, 30%);
+			}
+	}
+	
+	.navbar-nav > li > a {
+		color: #fff;
+			&:hover {
+				color:darken(#fff, 20%);
+			}		
+	}
+}
+
+.secondary-navbar {
+    background: #e4e4e4;
+    border-bottom: 1px solid #d4d4d4;
+	min-height: 44px;
+
+	.navbar-nav > li > a {
+	    line-height: 22px;
+	}
+
+	.half-nav {
+		width:50%;
+	}
+}
+
+// Helpers
+
+.mb0 {
+	margin-bottom:0px !important;
+}
+
+.mb10 {
+	margin-bottom:10px !important;
+}
+
+.mb20 {
+	margin-bottom:20px !important;
+}
+
+.mb30 {
+	margin-bottom:30px !important;
+}
+
+.mb40 {
+	margin-bottom:40px !important;
+}
+
+.mt0 {
+	margin-top:0px !important;
+}
+
+.mt10 {
+	margin-top:10px !important;
+}
+
+.mt20 {
+	margin-top:20px !important;
+}
+
+.mt30 {
+	margin-top:30px !important;
+}
+
+.mt40 {
+	margin-top:40px !important;
+}
+
+.ml0 {
+	margin-left:0px !important;
+}
+
+.ml10 {
+	margin-left:10px !important;
+}
+
+.ml20 {
+	margin-left:20px !important;
+}
+
+.ml30 {
+	margin-left:30px !important;
+}
+
+.ml40 {
+	margin-left:40px !important;
+}
+
+.mr0 {
+	margin-right:0px !important;
+}
+
+.mr10 {
+	margin-right:10px !important;
+}
+
+.mr20 {
+	margin-right:20px !important;
+}
+
+.mr30 {
+	margin-right:30px !important;
+}
+
+.mr40 {
+	margin-right:40px !important;
+}

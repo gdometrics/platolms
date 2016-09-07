@@ -35,7 +35,12 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    <?php $siteName = env('SITE_NAME'); ?>
+                    @if (isset($siteName))
+                        {{ env('SITE_NAME') }}
+                    @else
+                        Plato<span>LMS</span>
+                    @endif
                 </a>
             </div>
 
@@ -76,3 +81,34 @@
             </div>
         </div>
     </nav>
+
+    <nav class="navbar secondary-navbar">
+        <div class="container">
+            <div class="row">
+
+                <div class="{{ getColumns(6) }} half-nav collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-left">
+                        <!-- Placeholder Links -->
+                        <li><a href="{{ url('/login') }}" style="margin-left:-10px;">Menu 1</a></li>
+                        <li><a href="{{ url('/register') }}">Menu 2</a></li>
+                    </ul>
+                </div>
+
+                <div class="{{ getColumns(6) }} half-nav collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Placeholder Links -->
+                        <li><a href="{{ url('/login') }}">Menu 1</a></li>
+                        <li><a href="{{ url('/register') }}">Menu 2</a></li>
+                        <li><a href="{{ url('/register') }}" class="pr0">Menu 3</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+
