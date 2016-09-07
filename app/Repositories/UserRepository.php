@@ -53,7 +53,7 @@ class UserRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUsers(array $scopes)
+	public function getUsers(array $scopes = [])
 	{
 		return $this->findAllBy($this->table, $scopes);
 	}
@@ -77,6 +77,11 @@ class UserRepository extends Repository
 	 */
 	public function createUser(array $userData)
 	{
+		if (!isset($userData['password']))
+		{
+			$userData['password'] = makeRandomPassword();
+		}
+
 		return $this->create($this->table, $userData);
 	}
 

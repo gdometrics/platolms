@@ -21,4 +21,12 @@
 		return 'col-md-'.$columnNumber;
 	}
 
-
+	/**
+	 * Make a random password
+	 *
+	 * @return string
+	 */
+	function makeRandomPassword()
+	{
+		return str_random(rand(7,20));
+	}

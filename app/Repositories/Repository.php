@@ -56,6 +56,7 @@ class Repository
     public function create($table, array $data)
     {
         unset($data['_token']);
+        unset($data['_method']);
     	return \DB::table($table)->insertGetId($data);
     }
  
@@ -64,6 +65,8 @@ class Repository
 	 */
     public function update($model, $id, array $data)
     {
+        unset($data['_token']);
+        unset($data['_method']);
     	return $model::where('id', $id)->update($data);
     }
 

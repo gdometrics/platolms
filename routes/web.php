@@ -31,6 +31,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 		Route::resource('transcripts', 'TranscriptsController');
 		// Users
 		Route::resource('users', 'UsersController');
+		Route::get('/users/{user}/authentication', 'UsersController@editAuth')->name('users.edit.auth');
+		Route::post('/users/{user}/authentication', 'UsersController@updateAuth')->name('users.update.auth');
+		Route::get('/users/{user}/avatar', 'UsersController@editAvatar')->name('users.edit.avatar');
+		Route::post('/users/{user}/avatar', 'UsersController@updateAvatar')->name('users.update.avatar');
+
 	});
 
 	// Blog

@@ -6,7 +6,7 @@
             <h2 class="page-header mb30">All Users</h2>
         </div>
 
-        @include('admin.users.menu')
+        @include('admin.users.partials.menu')
 
         <div class="content-box">          
             <div class="table-responsive">
@@ -35,14 +35,5 @@
 @endsection
 
 @section('sidebar')
-    <div class="{{ getColumns(4) }} mt40">
-        <div class="panel panel-default">
-            <div class="panel-heading">{!! ucfirst(env('ADMIN_NAME')) !!} Dashboard</div>
-
-            <div class="panel-body">          
-
-            </div>
-
-        </div>
-    </div>
+    @include('layouts.sidebar')
 @endsection

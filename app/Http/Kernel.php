@@ -54,5 +54,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin.access' => \App\Http\Middleware\AllowAdminAccess::class,
         'portal.access' => \App\Http\Middleware\AllowPortalAccess::class,
+        'admin.resource.creation' => \App\Http\Middleware\AllowAdminResourceCreation::class,
     ];
 }

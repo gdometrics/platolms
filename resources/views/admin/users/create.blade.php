@@ -6,7 +6,7 @@
             <h2 class="page-header mb30">Create User</h2>
         </div>
 
-        @include('admin.users.menu')
+        @include('admin.users.partials.menu')
 
         <div class="content-box">          
 
@@ -27,11 +27,6 @@
                     {!! Form::email('email', '', ['required', 'placeholder' => '', 'class' => 'form-control']) !!}
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password</label><br/>
-                    {!! Form::text('password', '', ['required', 'placeholder' => '', 'class' => 'form-control']) !!}
-                </div>
-
                 {!! Form::submit('Submit', ['class' => 'btn btn-primary pull-right']) !!}
 
             {!! Form::close() !!}
@@ -42,14 +37,5 @@
 @endsection
 
 @section('sidebar')
-    <div class="{{ getColumns(4) }} mt40">
-        <div class="panel panel-default">
-            <div class="panel-heading">{!! ucfirst(env('ADMIN_NAME')) !!} Dashboard</div>
-
-            <div class="panel-body">          
-
-            </div>
-
-        </div>
-    </div>
+    @include('layouts.sidebar')
 @endsection
