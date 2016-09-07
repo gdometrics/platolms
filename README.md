@@ -16,31 +16,31 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 - Take another design pass
 
 ### Dev (Admin)
-- Users
-- Invoices
+- Users (@todo: Update Auth, Update Avatar, Two-Factor Auth Controls)
 - Roles
 - Students
 - Transcripts
 - Courses
--- Courses
--- Syllabus
--- Lessons
--- Modules
--- Pages
--- Templates
--- Assets
--- Articles
--- Conversations
--- Assignments
--- Chat
--- Testing
--- Grading
+ - Courses
+ - Syllabus
+ - Lessons
+ - Modules
+ - Pages
+ - Templates
+ - Assets
+ - Articles
+ - Conversations
+ - Assignments
+ - Chat
+ - Testing
+ - Grading
 - Blogs
--- Categories
--- Tags
--- Posts
--- Replies
+ - Categories
+ - Tags
+ - Posts
+ - Replies
 - Pages (tbd)
+- Invoices
 
 ### Dev (Logged In User)
 - Accounts
@@ -49,16 +49,16 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 - Semesters
 - Transcripts
 - Courses
--- Courses
--- Syllabus
--- Lessons
--- Modules
--- Pages
--- Assets
--- Articles
--- Conversations
--- Assignments
--- Chat
--- Testing
--- Grading
+ - Courses
+ - Syllabus
+ - Lessons
+ - Modules
+ - Pages
+ - Assets
+ - Articles
+ - Conversations
+ - Assignments
+ - Chat
+ - Testing
+ - Grading
 - Notifications/Settings (tbd)
