@@ -25,4 +25,15 @@ class UsersController extends Controller
 		return response()->view('admin.users.index', compact(['users']));
 	}
 
+	/**
+	 * Show the users panel
+	 *
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$user = \App\Models\User::find($id);
+		return response()->view('admin.users.show', compact(['user']));
+	}
+
 }
