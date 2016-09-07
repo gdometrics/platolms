@@ -17,11 +17,11 @@ class CreateSitePagesTable extends Migration
 		Schema::create('site_pages', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
-			$table->integer('layout_id')->unsigned();
-            $table->integer('top_panel')->nullable();
-            $table->integer('bottom_panel')->nullable();
-            $table->integer('left_panel')->nullable();
-            $table->integer('right_panel')->nullable();
+			$table->integer('site_page_layout_id')->unsigned();
+            $table->integer('top_panel_widget_collection_id')->nullable();
+            $table->integer('bottom_panel_widget_collection_id')->nullable();
+            $table->integer('left_panel_widget_collection_id')->nullable();
+            $table->integer('right_panel_widget_collection_id')->nullable();
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->text('page_content');

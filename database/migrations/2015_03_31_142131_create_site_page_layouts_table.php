@@ -19,10 +19,10 @@ class CreateSitePageLayoutsTable extends Migration
 			$table->increments('id')->unsigned();
             $table->string('name');
             $table->integer('page_content')->nullable();
-            $table->string('top_panel')->nullable();
-            $table->string('bottom_panel')->nullable();
-            $table->string('left_panel')->nullable();
-            $table->string('right_panel')->nullable();
+            $table->integer('top_panel')->nullable();
+            $table->integer('bottom_panel')->nullable();
+            $table->integer('left_panel')->nullable();
+            $table->integer('right_panel')->nullable();
 			$table->timestamps();        
         });
 	}
