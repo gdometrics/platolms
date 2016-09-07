@@ -16,7 +16,6 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 - Take another design pass
 
 ### Dev (Admin)
-- Auth/Admin
 - Users
 - Invoices
 - Roles
@@ -62,4 +61,4 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 -- Chat
 -- Testing
 -- Grading
--- Notifications/Settings (tbd)
+- Notifications/Settings (tbd)
