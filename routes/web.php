@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 	});
 
 	// Blog
-	Route::group(['namespace' => 'Blogs'], function () 
+	Route::group(['namespace' => 'Blog'], function () 
 	{
 		// Categories
 		Route::resource('categories', 'CategoriesController');
@@ -133,8 +133,6 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_URI'), 'middlewar
 		Route::resource('courses', 'CoursesController', ['only' => ['index', 'show']]);
 		// Grading
 		Route::resource('grading', 'GradingController', ['only' => ['index', 'show']]);
-		// Layouts
-		Route::resource('layouts', 'LayoutsController', ['only' => ['index', 'show']]);
 		// Lessons
 		Route::resource('lessons', 'LessonsController', ['only' => ['index', 'show']]);
 		// Modules

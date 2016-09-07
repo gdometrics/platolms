@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Catalogue;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 class MinorsController extends Controller
 {
 

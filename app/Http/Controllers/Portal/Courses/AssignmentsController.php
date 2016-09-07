@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Portal\Courses;
 
-class AssignmentController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class AssignmentsController extends Controller
 {
 
 	/*

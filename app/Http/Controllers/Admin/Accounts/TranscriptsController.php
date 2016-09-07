@@ -1,13 +1,16 @@
 <?php 
 
-namespace App\Http\Controllers\Portal\Account;
+namespace App\Http\Controllers\Admin\Accounts;
 
-class MajorsController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class TranscriptsController extends Controller
 {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Majors Controller
+	| Transcipts Controller
 	|--------------------------------------------------------------------------
 	*/
 

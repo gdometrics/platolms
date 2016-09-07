@@ -1,13 +1,16 @@
 <?php 
 
-namespace App\Http\Controllers\Portal\Account;
+namespace App\Http\Controllers\Admin\Courses;
 
-class SemestersController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class TestingsController extends Controller
 {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Semesters Controller
+	| Testing Controller
 	|--------------------------------------------------------------------------
 	*/
 

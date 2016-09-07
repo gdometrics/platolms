@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Accounts;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 class UsersController extends Controller
 {
 
@@ -12,23 +15,14 @@ class UsersController extends Controller
 	*/
 
 	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
-
-	/**
-	 * Show the application dashboard to the user.
+	 * Show the users panel
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return view('home');
+		$users = \App\Models\User::get();
+		return response()->view('admin.users.index', compact(['users']));
 	}
 
 }

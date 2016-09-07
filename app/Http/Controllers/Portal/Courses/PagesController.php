@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Portal\Courses;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 class PagesController extends Controller
 {
 

@@ -1,6 +1,9 @@
 <?php 
 
-namespace App\Http\Controllers\Courses;
+namespace App\Http\Controllers\Admin\Courses;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GradingController extends Controller
 {

@@ -1,13 +1,16 @@
 <?php 
 
-namespace App\Http\Controllers\Portal\Account;
+namespace App\Http\Controllers\Portal\Courses;
 
-class ProfilesController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class ChatsController extends Controller
 {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Profiles Controller
+	| Chat Controller
 	|--------------------------------------------------------------------------
 	*/
 

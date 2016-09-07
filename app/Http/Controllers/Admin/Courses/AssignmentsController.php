@@ -1,8 +1,11 @@
 <?php 
 
-namespace App\Http\Controllers\Courses;
+namespace App\Http\Controllers\Admin\Courses;
 
-class AssignmentController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class AssignmentsController extends Controller
 {
 
 	/*
