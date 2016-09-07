@@ -10,4 +10,22 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+	 * Flash the error message and return to the previous view
+	 *
+	 * @return string
+	 */
+	function flashErrorAndReturnWithMessage($exception)
+	{
+		if (env('APP_DEBUG'))
+		{
+	    	dd($exception);
+		}
+
+        // returns back with ERROR message
+        flash()->error('There was a problem processing your request.');
+        return redirect()->back()->withInput()->withErrors($exception->getMessage());
+	}
+
 }

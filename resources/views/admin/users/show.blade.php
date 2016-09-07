@@ -6,6 +6,8 @@
             <h2 class="page-header mb30">{{ $user->first }} {{ $user->last }}</h2>
         </div>
 
+        @include('admin.users.menu')
+
         <div class="content-box">          
             @if ($user)
                 <a href="{{ route('users.show', $user->id) }}">{{ $user->first }} {{ $user->last }}</a><br/>

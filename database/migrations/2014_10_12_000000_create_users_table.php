@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
 			$table->string('password', 60);
             $table->string('first');
             $table->string('last');
-            $table->mediumText('bio');
+            $table->mediumText('bio')->nullable();
             $table->text('img')->nullable();
             $table->string('question')->nullable();
             $table->string('answer')->nullable();

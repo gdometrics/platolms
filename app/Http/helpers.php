@@ -20,3 +20,5 @@
 
 		return 'col-md-'.$columnNumber;
 	}
+
+

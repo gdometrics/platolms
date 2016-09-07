@@ -12,6 +12,7 @@
         "laravel/scout": "^1.0",
         "laravel/socialite": "^2.0",
         "intervention/image": "^2.3",
+        "laravelcollective/html": "5.3.*",
         "laracasts/flash": "^2.0"
     },
     "require-dev": {

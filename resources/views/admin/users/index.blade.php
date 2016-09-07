@@ -6,6 +6,8 @@
             <h2 class="page-header mb30">All Users</h2>
         </div>
 
+        @include('admin.users.menu')
+
         <div class="content-box">          
             <div class="table-responsive">
                 <table class="table table-striped">

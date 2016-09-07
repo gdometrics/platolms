@@ -55,6 +55,7 @@ class Repository
 	 */
     public function create($table, array $data)
     {
+        unset($data['_token']);
     	return \DB::table($table)->insertGetId($data);
     }
  
