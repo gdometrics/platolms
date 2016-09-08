@@ -10,7 +10,7 @@
 
         <div class="content-box">          
             @if ($user)
-                {!! Form::open(['route' => ['users.update', $user->id], 'id' => 'form', 'method' => 'put', 'files' => 'true']) !!}
+                {!! Form::open(['route' => ['admin.users.update', $user->id], 'id' => 'form', 'method' => 'put', 'files' => 'true']) !!}
 
                     <div class="form-group">
                         <label for="first">First Name</label><br/>

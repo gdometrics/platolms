@@ -10,7 +10,7 @@
 
         <div class="content-box">          
             @if ($user)
-                {!! Form::open(['route' => ['users.update.auth', $user->id], 'id' => 'form', 'method' => 'post', 'files' => 'true']) !!}
+                {!! Form::open(['route' => ['admin.users.update.auth', $user->id], 'id' => 'form', 'method' => 'post', 'files' => 'true']) !!}
 
                     <div class="form-group">
                         <label for="password">Password</label><br/>

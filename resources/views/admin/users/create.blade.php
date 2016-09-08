@@ -10,7 +10,7 @@
 
         <div class="content-box">          
 
-            {!! Form::open(['route' => ['users.store'], 'id' => 'form', 'method' => 'post', 'files' => 'true']) !!}
+            {!! Form::open(['route' => ['admin.users.store'], 'id' => 'form', 'method' => 'post', 'files' => 'true']) !!}
 
                 <div class="form-group">
                     <label for="first">First Name</label><br/>

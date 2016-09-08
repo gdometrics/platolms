@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 	Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
 
 	// Accounts
-	Route::group(['namespace' => 'Accounts'], function () 
+	Route::group(['namespace' => 'Accounts', 'as' => 'admin.'], function () 
 	{
 		// Invoices
 		Route::resource('invoices', 'InvoicesController');
@@ -39,7 +39,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 	});
 
 	// Blog
-	Route::group(['namespace' => 'Blog'], function () 
+	Route::group(['namespace' => 'Blog', 'as' => 'admin.'], function () 
 	{
 		// Categories
 		Route::resource('categories', 'CategoriesController');
@@ -52,7 +52,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 	});
 
 	// Catalogue
-	Route::group(['namespace' => 'Catalogue'], function () 
+	Route::group(['namespace' => 'Catalogue', 'as' => 'admin.'], function () 
 	{
 		// Catalogues
 		Route::resource('catalogues', 'CataloguesController');
@@ -65,7 +65,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 	});
 
 	// Courses
-	Route::group(['namespace' => 'Courses'], function () 
+	Route::group(['namespace' => 'Courses', 'as' => 'admin.'], function () 
 	{
 		// Articles
 		Route::resource('articles', 'ArticlesController');
@@ -109,7 +109,7 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_URI'), 'middlewar
 	Route::get('/', 'HomeController@dashboard')->name('portal.dashboard');
 
 	// Account
-	Route::group(['namespace' => 'Accounts'], function () 
+	Route::group(['namespace' => 'Accounts', 'as' => 'portal.'], function () 
 	{
 		// Catalogues
 		Route::resource('catalogues', 'CataloguesController', ['only' => ['index', 'show']]);
@@ -122,7 +122,7 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_URI'), 'middlewar
 	});
 
 	// Courses
-	Route::group(['namespace' => 'Courses'], function () 
+	Route::group(['namespace' => 'Courses', 'as' => 'portal.'], function () 
 	{
 		// Articles
 		Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show']]);

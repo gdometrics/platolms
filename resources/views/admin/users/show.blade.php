@@ -10,7 +10,7 @@
 
         <div class="content-box">          
             @if ($user)
-                <a href="{{ route('users.show', $user->id) }}">{{ $user->first }} {{ $user->last }}</a><br/>
+                <a href="{{ route('admin.users.show', $user->id) }}">{{ $user->first }} {{ $user->last }}</a><br/>
                 {{ $user->email }}
             @endif
         </div>

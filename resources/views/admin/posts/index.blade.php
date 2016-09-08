@@ -3,10 +3,10 @@
 @section('content')
     <div class="{{ getColumns(8) }}">
         <div class="">
-            <h2 class="page-header mb30">All Users</h2>
+            <h2 class="page-header mb30">All Posts</h2>
         </div>
 
-        @include('admin.users.partials.menu')
+        @include('admin.posts.partials.menu')
 
         <div class="content-box">          
             <div class="table-responsive">
@@ -14,15 +14,13 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($posts as $post)
 
                             <tr>
-                                <td><a href="{{ route('admin.users.show', $user->id) }}">{{ $user->first }} {{ $user->last }}</a></td>
-                                <td>{{ $user->email }}</td>
+                                <td><a href="">{{ $post->name }}</a></td>
                             </tr>
 
                         @endforeach
