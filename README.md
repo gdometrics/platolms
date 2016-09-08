@@ -16,7 +16,7 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 - Take another design pass
 
 ### Dev (Admin)
-- Users (@todo: Update Auth, Update Avatar, Two-Factor Auth Controls)
+- Users (@todo: Update Auth, Update Avatar, Two-Factor Auth Controls, Multiple Upload)
 - Roles
 - Students
 - Transcripts
