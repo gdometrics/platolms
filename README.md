@@ -9,6 +9,8 @@ Plato is an open-source LMS built on the Laravel web application framework.
 Plato is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 ## ToDo:
+- Add db of states & countries
+- Add seeder for roles/sample users
 
 ### Design
 - Scaffolding (bootstrap)
