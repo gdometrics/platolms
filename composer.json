@@ -28,8 +28,9 @@
             "app/Models"
         ],
         "files": [
-            "app/Http/helpers.php",
-            "app/Http/arrays.php"
+            "app/Http/Helpers/arrays.php",
+            "app/Http/Helpers/forms.php",
+            "app/Http/Helpers/helpers.php"
         ],
         "psr-4": {
             "App\\": "app/"
