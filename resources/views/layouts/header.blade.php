@@ -39,7 +39,7 @@
                     @if (isset($siteName))
                         {{ env('SITE_NAME') }}
                     @else
-                        Plato<span>LMS</span>
+                        <img src="{!! asset('/img/icons/plato-icon.png') !!}" style="width: 35px; float: left;margin-top: -8px;margin-right: 4px;"> Plato<span>LMS</span>
                     @endif
                 </a>
             </div>
@@ -76,6 +76,12 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href=""><i class="fa fa-cog"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-bell"></i></a>
+                        </li>
                     @endif
                 </ul>
             </div>
@@ -90,8 +96,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-left">
                         <!-- Placeholder Links -->
-                        <li><a href="{{ url('/login') }}" style="margin-left:-10px;">Menu 1</a></li>
-                        <li><a href="{{ url('/register') }}">Menu 2</a></li>
+                        <li><a href="{{ url('/login') }}"><i class="fa fa-book"></i> Wiki</a></li>
+                        <li><a href="{{ url('/register') }}"><i class="fa fa-line-chart"></i> Analytics</a></li>
                     </ul>
                 </div>
 
@@ -99,9 +105,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Placeholder Links -->
-                        <li><a href="{{ url('/login') }}">Menu 1</a></li>
-                        <li><a href="{{ url('/register') }}">Menu 2</a></li>
-                        <li><a href="{{ url('/register') }}" class="pr0">Menu 3</a></li>
+                        <li><a href="{{ url('/login') }}" style="margin-left:-10px;"><i class="fa fa-share-alt"></i> Integrations</a></li>
+                        <li><a href="{{ url('/register') }}"><i class="fa fa-plug"></i> Plugins</a></li>
+                        <li><a href="{{ url('/register') }}" class="pr0"><i class="fa fa-cubes"></i> Themes</a></li>
                     </ul>
                 </div>
 
