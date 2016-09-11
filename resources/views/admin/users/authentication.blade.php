@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="{{ getColumns(8) }}">
+    <div class="{{ getColumns(9) }}">
         <div class="">
             <h2 class="page-header mb30">{{ $user->first }} {{ $user->last }}</h2>
         </div>
@@ -12,25 +12,10 @@
             @if ($user)
                 {!! Form::open(['route' => ['admin.users.update.auth', $user->id], 'id' => 'form', 'method' => 'post', 'files' => 'true']) !!}
 
-                    <div class="form-group">
-                        <label for="password">Password</label><br/>
-                        {!! Form::password('password', ['placeholder' => '', 'class' => 'form-control']) !!}
-                    </div>                    
-
-                    <div class="form-group">
-                        <label for="password_confirmation">Password Confirmation</label><br/>
-                        {!! Form::password('password_confirmation', ['placeholder' => '', 'class' => 'form-control']) !!}
-                    </div>                    
-
-                    <div class="form-group">
-                        <label for="question">Question</label><br/>
-                        {!! Form::text('question', $user->question, ['placeholder' => '', 'class' => 'form-control']) !!}
-                    </div>                    
-
-                    <div class="form-group">
-                        <label for="answer">Answer</label><br/>
-                        {!! Form::text('answer', $user->answer, ['placeholder' => '', 'class' => 'form-control']) !!}
-                    </div>                    
+                    {!! makePasswordField('password', 'Password', '', '', 'required', $errors) !!}
+                    {!! makePasswordField('password_confirmation', 'Password Confirmation', '', '', 'required', $errors) !!}
+                    {!! makeTextField('question', 'Security Question', $user->question, '', 'required', $errors) !!}
+                    {!! makeTextField('answer', 'Security Answer', $user->answer, '', 'required', $errors) !!}
 
                     {!! Form::submit('Submit', ['class' => 'btn btn-primary pull-right']) !!}
 

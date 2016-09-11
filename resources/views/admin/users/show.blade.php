@@ -12,6 +12,13 @@
             @if ($user)
                 <a href="{{ route('admin.users.show', $user->id) }}">{{ $user->first }} {{ $user->last }}</a><br/>
                 {{ $user->email }}
+
+                Roles:
+                    @if ($user->roles) 
+                        @foreach ($user->roles as $role) 
+                            {{ $role->name }} 
+                        @endforeach 
+                    @endif
             @endif
         </div>
     </div>

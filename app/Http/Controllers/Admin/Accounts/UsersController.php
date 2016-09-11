@@ -147,14 +147,16 @@ class UsersController extends Controller
 	public function updateAuth(Request $request, $id)
 	{
         $validator = $this->validate($request, [
-            'password' => 'required',
-            'password_confirmation' => 'required|confirmed',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+            'question' => 'required',
+            'answer' => 'required',
         ]);
 
     	// send to the user repository
         try
         {
-        	//
+        	$updatedUser = $this->repository->updateUserAuth($id, $request->all());
 
         } catch(\Exception $exception)
         {
@@ -162,7 +164,7 @@ class UsersController extends Controller
         }
 
         // returns back with success message
-        flash()->success('');
+        flash()->success('Your account has been updated');
         return redirect()->action('Admin\Accounts\UsersController@editAuth', ['user' => $id]);
 	}
 

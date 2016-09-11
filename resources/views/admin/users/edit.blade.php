@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="{{ getColumns(8) }}">
+    <div class="{{ getColumns(9) }}">
         <div class="">
             <h2 class="page-header mb30">{{ $user->first }} {{ $user->last }}</h2>
         </div>
@@ -26,7 +26,7 @@
                     {!! makeTextField('postal', 'Postal Code', $user->postal, '', 'not-required', $errors) !!}
                     {!! makeTextField('timezone', 'Timezone', $user->timezone, '', 'not-required', $errors) !!}
                     {!! makeTextField('phone', 'Phone', $user->phone, '', 'not-required', $errors) !!}           
-                    
+
                     {!! Form::submit('Submit', ['class' => 'btn btn-primary pull-right']) !!}
 
                 {!! Form::close() !!}

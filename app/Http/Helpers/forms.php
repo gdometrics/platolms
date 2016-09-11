@@ -71,7 +71,7 @@
 	 */
 	function makePasswordField($name, $label, $default, $placeholder, $required, $errors, $class = '')
 	{
-		$formField = Form::email($name, $default, [''.$required.'', 'placeholder' => ''.$placeholder.'', 'class' => ''.$class.' form-control']);
+		$formField = Form::password($name, [''.$required.'', 'placeholder' => ''.$placeholder.'', 'class' => ''.$class.' form-control']);
 		return makeBaseForm($formField, $name, $label, $default, $placeholder, $required, $errors, $class = '');
 	}
 

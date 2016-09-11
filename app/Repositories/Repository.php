@@ -32,9 +32,9 @@ class Repository
 	/**
 	 * Retrieve a collection of records by 
 	 */
-    public function findAllBy($table, $scopes)
+    public function findAllBy($model, $scopes)
     {
-    	return \DB::table($table)->where($scopes)->get();
+        return $model::where($scopes)->get();
     }
 
 	/**

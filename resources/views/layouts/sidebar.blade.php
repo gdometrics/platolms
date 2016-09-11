@@ -1,4 +1,4 @@
-    <div class="{{ getColumns(4) }} mt40">
+    <div class="{{ getColumns(3) }} mt40">
         <div class="panel panel-default">
             <div class="panel-heading">{!! ucfirst(env('ADMIN_NAME')) !!} Dashboard</div>
 

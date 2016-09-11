@@ -55,7 +55,7 @@ class UserRepository extends Repository
 	 */
 	public function getUsers(array $scopes = [])
 	{
-		return $this->findAllBy($this->table, $scopes);
+		return $this->findAllBy($this->model, $scopes);
 	}
 
 	/**
@@ -111,6 +111,18 @@ class UserRepository extends Repository
 	 */
 	public function updateUser($userId, array $userData)
 	{
+		return $this->update($this->model, $userId, $userData);
+	}
+
+	/**
+	 * Get a validator for an incoming registration request.
+	 *
+	 * @param  array  $data
+	 * @return \Illuminate\Contracts\Validation\Validator
+	 */
+	public function updateUserAuth($userId, array $userData)
+	{
+        unset($userData['password_confirmation']);
 		return $this->update($this->model, $userId, $userData);
 	}
 
