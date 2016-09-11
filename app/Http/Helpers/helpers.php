@@ -31,6 +31,58 @@
 		return str_random(rand(7,20));
 	}
 			
+	function makeRoleLabel($roleName, $abbreviation = false)
+	{
+		switch ($roleName)
+		{
+			case 'Super Admin';
+				$label = 'red';
+				$role = 'Super Admin';			
+				if ($abbreviation)
+				{
+					$role = 'SA';
+				}
+				break;
+			case 'Admin';
+				$label = 'info';
+				$role = 'Admin';			
+				if ($abbreviation)
+				{
+					$role = 'A';
+				}
+				break;
+			case 'Editor';
+				$label = 'warning';
+				$role = 'Editor';			
+				if ($abbreviation)
+				{
+					$role = 'E';
+				}
+				break;
+			case 'Instructor';
+				$label = 'success';
+				$role = 'Instructor';			
+				if ($abbreviation)
+				{
+					$role = 'I';
+				}
+				break;
+			case 'Student';
+				$label = 'primary';
+				$role = 'Student';			
+				if ($abbreviation)
+				{
+					$role = 'S';
+				}
+				break;
+			default:
+				$label = 'success';
+				$role = 'S';
+		}
+
+		return '<span class="label label-'.$label.'">'.$role.'</span>';
+	}
+
 	/**
 	 * Gets the image for a user
 	 *
