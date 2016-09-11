@@ -123,6 +123,7 @@ class UserRepository extends Repository
 	public function updateUserAuth($userId, array $userData)
 	{
         unset($userData['password_confirmation']);
+        $userData['password'] = bcrypt($userData['password']);
 		return $this->update($this->model, $userId, $userData);
 	}
 
