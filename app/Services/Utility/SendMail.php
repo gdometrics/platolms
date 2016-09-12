@@ -22,7 +22,8 @@ class SendMail {
 	 *
 	 * @return view
 	 */
-	public function sendMail(array $email){
+	public function sendMail(array $email)
+	{
 		
 		try {
 
