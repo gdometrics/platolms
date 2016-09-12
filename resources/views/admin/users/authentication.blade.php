@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="{{ getColumns(9) }}">
+    <div class="primary-content">
         <div class="">
             <h2 class="page-header mb30">{{ $user->first }} {{ $user->last }}</h2>
         </div>
@@ -25,8 +25,4 @@
             @endif
         </div>
     </div>
-@endsection
-
-@section('sidebar')
-    @include('layouts.sidebar')
 @endsection

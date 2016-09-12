@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="{{ getColumns(8) }}">
+    <div class="primary-content">
         <div class="">
             <h2 class="page-header mb30">All Roles</h2>
         </div>
@@ -32,8 +32,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('sidebar')
-    @include('layouts.sidebar')
 @endsection

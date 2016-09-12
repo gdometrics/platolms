@@ -22,7 +22,7 @@
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
+        <div class="">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -39,16 +39,16 @@
                     @if (isset($siteName))
                         {{ env('SITE_NAME') }}
                     @else
-                        <img src="{!! asset('/img/icons/plato-icon.png') !!}" style="width: 35px; float: left;margin-top: -8px;margin-right: 4px;"> Plato<span>LMS</span>
+                        <img src="{!! asset('/img/icons/plato-icon.png') !!}"> Plato<span>LMS</span>
                     @endif
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
+                <div class="nav navbar-nav">
+                    <p>Today is {{ date('D, F jS') }} at {{ date('g:i A') }}.</p>
+                </div>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -88,33 +88,6 @@
         </div>
     </nav>
 
-    <nav class="navbar secondary-navbar">
-        <div class="container">
-            <div class="row">
-
-                <div class="{{ getColumns(6) }} half-nav collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-left">
-                        <!-- Placeholder Links -->
-                        <li><a href="{{ url('/login') }}"><i class="fa fa-book"></i> Wiki</a></li>
-                        <li><a href="{{ url('/register') }}"><i class="fa fa-line-chart"></i> Analytics</a></li>
-                    </ul>
-                </div>
-
-                <div class="{{ getColumns(6) }} half-nav collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Placeholder Links -->
-                        <li><a href="{{ url('/login') }}" style="margin-left:-10px;"><i class="fa fa-share-alt"></i> Integrations</a></li>
-                        <li><a href="{{ url('/register') }}"><i class="fa fa-plug"></i> Plugins</a></li>
-                        <li><a href="{{ url('/register') }}" class="pr0"><i class="fa fa-cubes"></i> Themes</a></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
+    <div class="">
+        <div class="">
 

@@ -1,9 +1,9 @@
-@include('layouts.header')
+@include('layouts.partials.app-header')
 
     @include('layouts.partials.flash')	    
 
+    @include('layouts.partials.app-sidebar')
+
     @yield('content')
 
-    @yield('sidebar')
-
-@include('layouts.footer')
+@include('layouts.partials.app-footer')
