@@ -185,16 +185,27 @@ class UsersController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function updateAvatar(Request $request, $id)
+	public function updateAvatar(UploadFile $upload, Request $request, $id)
 	{
         $validator = $this->validate($request, [
-            //
+            'avatar' => 'required|mimes:jpeg,bmp,png,gif,jpg,jpe'
         ]);
 
     	// send to the user repository
         try
         {
-        	//
+        	// First try to upload the image
+			try {
+
+				$userData = [
+					'avatar' => $upload->uploadUserImage($id, $request->all())
+				];
+
+			} catch (Exception $e) {
+	            $this->flashErrorAndReturnWithMessage($exception);
+			}
+
+        	$updateUserAvatar = $this->repository->updateUser($id, $filePath);
 
         } catch(\Exception $exception)
         {
@@ -202,7 +213,44 @@ class UsersController extends Controller
         }
 
         // returns back with success message
-        flash()->success('');
+        flash()->success('Your avatar was updated.');
         return redirect()->action('Admin\Accounts\UsersController@editAvatar', ['user' => $id]);
-	}	
+	}
+
+	/**
+	 * Store the newly created user
+	 *
+	 * @return Response
+	 */
+	public function addMultipleUsers(UploadFile $upload, InjestFile $injestFile)
+	{
+        $validator = $this->validate($request, [
+            'file' => 'required|mimes:csv,xls'
+        ]);
+
+    	// send to the user repository
+        try
+        {
+        	// First try to upload the file
+			try {
+
+				$filePath = $upload->uploadTemporaryFile($request->all());
+				$usersData = $injestFile->injest($filePath);
+
+			} catch (Exception $e) {
+	            $this->flashErrorAndReturnWithMessage($exception);
+			}
+
+        	$uploadedUsers = $this->repository->createUsers($usersData);
+
+        } catch(\Exception $exception)
+        {
+            $this->flashErrorAndReturnWithMessage($exception);
+        }
+
+        // returns back with success message
+        flash()->success('Your users were added.');
+        return redirect()->action('Admin\Accounts\UsersController@index');
+	}
+
 }

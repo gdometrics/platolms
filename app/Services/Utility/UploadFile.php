@@ -45,6 +45,28 @@ class UploadFile
     }
 
     /**
+     * The service provider to handle avatar uploads
+     *
+     * @return void
+     */
+    public function uploadTemporaryFile($file)
+    {
+
+       try {
+
+            // return the filename in a string format
+            return $this->upload($file, 'temp/'.date('dmyHis'));
+            
+        } catch(Exception $e)
+        {
+            
+            throw $e;
+            
+        } // end try/catch
+        
+    }
+
+    /**
      * The service provider to handle all uploads
      *
      * @return void

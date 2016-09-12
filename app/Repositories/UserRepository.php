@@ -126,7 +126,7 @@ class UserRepository extends Repository
         $userData['password'] = bcrypt($userData['password']);
 		return $this->update($this->model, $userId, $userData);
 	}
-
+	
 	/**
 	 * Get a validator for an incoming registration request.
 	 *
