@@ -34,9 +34,7 @@ class SendMail {
 			
 			return 'Message Sent';
         
-        }
-        
-        catch (Exception $e) 
+        } catch (Exception $e) 
         {
 	        // Send do download page
 	        Log::info('Mail failed to send: '.$email['recipient_email']);
