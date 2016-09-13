@@ -156,5 +156,10 @@ Route::group(['namespace' => 'Portal', 'prefix' => env('PORTAL_URI'), 'middlewar
 
 Route::get('/home', 'Portal\HomeController@index')->name('home');
 
+// File Routes
+Route::get('avatars/{id}/{img}', function ($id, $img) {
+    return \Image::make(storage_path() . '/app/uploads/'.$id.'/avatar/' . $img)->response();
+});
+
 // Auth Routes
 Auth::routes();

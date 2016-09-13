@@ -36,10 +36,10 @@
                                     <small>{{ $user->email }}</small>
                                 </td>
                                 <td class="text-right" style="padding-top: 15px;">
-                                    <a href="" class="btn btn-success btn-sm"><i class="fa fa-globe"></i></a>
-                                    <a href="" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-                                    <a href="" class="btn btn-primary btn-sm"><i class="fa fa-lock"></i></a>
-                                    <a href="" class="btn btn-info btn-sm"><i class="fa fa-user"></i></a>
+                                    <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-success btn-sm"><i class="fa fa-globe"></i></a>
+                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ route('admin.users.edit.auth', $user->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-lock"></i></a>
+                                    <a href="{{ route('admin.users.edit.avatar', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-user"></i></a>
                                     <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>

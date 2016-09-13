@@ -27,13 +27,15 @@ class UploadFile
      *
      * @return void
      */
-    public function uploadUserImage($file)
+    public function uploadUserImage($id, $file)
     {
 
        try {
 
+            $this->cleanOutFolder(storage_path() . '/app/uploads/' . $id . '/avatar/');
+
             // return the filename in a string format
-            return $this->upload($file, 'uploads/' . str_slug(\Auth::user()->name) . '/avatar/', 'public');
+            return $this->upload($file, 'uploads/' . $id . '/avatar/', 'public');
             
         } catch(Exception $e)
         {
@@ -136,6 +138,24 @@ class UploadFile
         return $filename;
     }
     
+    /**
+     * The helper function to clean and time stamp a file
+     *
+     * @return void
+     */
+    public function cleanOutFolder($folderName)
+    {
+        // cleanup the temp file directory
+        $files = File::allFiles($folderName);
+        if (is_array($files))
+        {
+            foreach ($files as $file)
+            {
+                File::delete($file);    
+            } // END FOR EACH
+        } // END IF $FILES
+    }
+
     /**
      * The clean up function
      *

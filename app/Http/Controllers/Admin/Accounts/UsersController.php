@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Accounts;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\Utility\UploadFile as UploadFile;
 use App\Repositories\UserRepository as UserRepository;
 
 class UsersController extends Controller
@@ -198,14 +199,14 @@ class UsersController extends Controller
 			try {
 
 				$userData = [
-					'avatar' => $upload->uploadUserImage($id, $request->all())
+					'img' => $upload->uploadUserImage($id, $request->avatar)
 				];
 
 			} catch (Exception $e) {
 	            $this->flashErrorAndReturnWithMessage($exception);
 			}
 
-        	$updateUserAvatar = $this->repository->updateUser($id, $filePath);
+        	$updateUserAvatar = $this->repository->updateUser($id, $userData);
 
         } catch(\Exception $exception)
         {
