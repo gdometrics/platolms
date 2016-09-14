@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Accounts;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Utility\UploadFile as UploadFile;
+use App\Services\Utility\InjestFile as InjestFile;
 use App\Repositories\UserRepository as UserRepository;
 
 class UsersController extends Controller
@@ -219,14 +220,25 @@ class UsersController extends Controller
 	}
 
 	/**
+	 * Show an individual user's profile
+	 *
+	 * @return Response
+	 */
+	public function importUsers()
+	{
+		$menuTab = $this->menuTab;
+		return response()->view('admin.users.import', compact(['menuTab']));
+	}
+
+	/**
 	 * Store the newly created user
 	 *
 	 * @return Response
 	 */
-	public function addMultipleUsers(UploadFile $upload, InjestFile $injestFile)
+	public function addMultipleUsers(UploadFile $upload, InjestFile $injestFile, Request $request)
 	{
         $validator = $this->validate($request, [
-            'file' => 'required|mimes:csv,xls'
+            'file' => 'required|mimes:csv,txt,xls'
         ]);
 
     	// send to the user repository
@@ -235,7 +247,7 @@ class UsersController extends Controller
         	// First try to upload the file
 			try {
 
-				$filePath = $upload->uploadTemporaryFile($request->all());
+				$filePath = $upload->uploadTemporaryFile($request->file);
 				$usersData = $injestFile->injest($filePath);
 
 			} catch (Exception $e) {

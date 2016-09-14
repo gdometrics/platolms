@@ -65,7 +65,7 @@ class UploadFile
        try {
 
             // return the filename in a string format
-            return $this->upload($file, 'temp/'.date('dmyHis'));
+            return $this->upload($file, 'temp/injestables/', 'private', true);
             
         } catch(Exception $e) {
             
@@ -80,7 +80,7 @@ class UploadFile
      *
      * @return void
      */
-    public function upload($file, $path_relative, $public = 'private')
+    public function upload($file, $path_relative, $public = 'private', $immediatelyScrub = false)
     {
 
        try {
@@ -97,6 +97,11 @@ class UploadFile
                 try {
 
                     Storage::disk(env('FILESYSTEM'))->put($path_relative . $fileNamed, file_get_contents($file), $public);
+
+                    if ($immediatelyScrub)
+                    {
+                        Storage::disk(env('FILESYSTEM'))->delete($this->tempPath_relative . $fileNamed);
+                    }
 
                     // return the filename in a string format
                     return $fileNamed;
@@ -170,6 +175,7 @@ class UploadFile
     public function __destroy()
     {
         // cleanup the temp file directory
+        // @todo Make Recursive
         $files = File::files($this->tempPath);
         if (is_array($files))
         {

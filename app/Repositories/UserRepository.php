@@ -96,7 +96,7 @@ class UserRepository extends Repository
 		$usersCreated = [];
 		foreach ($usersData as $userData)
 		{
-			$user = $this->createUser($this->table, $userData);
+			$user = $this->createUser($userData);
 			array_push($usersCreated, $user);
 		}
 

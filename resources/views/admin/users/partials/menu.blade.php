@@ -8,5 +8,6 @@
 	                <li><a href="{{ route('admin.users.edit.avatar', $user->id) }}">Avatar</a></li>
                 @endif
                 <li><a href="{{ route('admin.users.create') }}">Create New User</a></li>
+                <li><a href="{{ route('admin.users.import') }}">Import Users</a></li>
             </ul>
         </div>

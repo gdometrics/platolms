@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a63e873a77be856235ffa4fc0ae43496",
-    "content-hash": "8c7590048b6bb8847bb598741a6e866e",
+    "hash": "2c73740c6b8a27c84a0c6c0c466eab5d",
+    "content-hash": "a835047eb5a08e6de47b9f925aa64b8b",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -748,16 +748,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.6",
+            "version": "v5.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c63a7fb7066fea2bce91ace5c830c01d503abe6c"
+                "reference": "f6fbb481672f8dc4bc6882d5d654bbfa3588c8ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c63a7fb7066fea2bce91ace5c830c01d503abe6c",
-                "reference": "c63a7fb7066fea2bce91ace5c830c01d503abe6c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f6fbb481672f8dc4bc6882d5d654bbfa3588c8ec",
+                "reference": "f6fbb481672f8dc4bc6882d5d654bbfa3588c8ec",
                 "shasum": ""
             },
             "require": {
@@ -871,20 +871,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-09-01 14:06:47"
+            "time": "2016-09-12 14:08:29"
         },
         {
             "name": "laravel/passport",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "55fb99f5feb3572634b6d37a8aa43bd8a7148960"
+                "reference": "6297120abe169812b7b32b4c8d55b6b3446686fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/55fb99f5feb3572634b6d37a8aa43bd8a7148960",
-                "reference": "55fb99f5feb3572634b6d37a8aa43bd8a7148960",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/6297120abe169812b7b32b4c8d55b6b3446686fe",
+                "reference": "6297120abe169812b7b32b4c8d55b6b3446686fe",
                 "shasum": ""
             },
             "require": {
@@ -900,8 +900,8 @@
                 "illuminate/support": "~5.3",
                 "league/oauth2-server": "~5.0",
                 "php": ">=5.6.4",
-                "symfony/process": "~3.1",
-                "symfony/psr-http-message-bridge": "^0.2.0",
+                "phpseclib/phpseclib": "^2.0",
+                "symfony/psr-http-message-bridge": "^0.3.0",
                 "zendframework/zend-diactoros": "~1.0"
             },
             "require-dev": {
@@ -935,7 +935,7 @@
                 "oauth",
                 "passport"
             ],
-            "time": "2016-08-23 12:49:27"
+            "time": "2016-09-09 14:47:12"
         },
         {
             "name": "laravel/scout",
@@ -1438,6 +1438,73 @@
             "time": "2016-07-26 19:42:03"
         },
         {
+            "name": "maatwebsite/excel",
+            "version": "2.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
+                "reference": "b5c91156f6bd29f68f4f2c51186faae4310a5a68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/b5c91156f6bd29f68f4f2c51186faae4310a5a68",
+                "reference": "b5c91156f6bd29f68f4f2c51186faae4310a5a68",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/config": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/filesystem": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "nesbot/carbon": "~1.0",
+                "php": ">=5.5",
+                "phpoffice/phpexcel": "1.8.*",
+                "tijsverkoyen/css-to-inline-styles": "~1.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "orchestra/testbench": "3.1.*",
+                "phpseclib/phpseclib": "~1.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "illuminate/http": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/queue": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/routing": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/view": "5.0.*|5.1.*|5.2.*|5.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Maatwebsite/Excel"
+                ],
+                "psr-0": {
+                    "Maatwebsite\\Excel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maatwebsite.nl",
+                    "email": "patrick@maatwebsite.nl"
+                }
+            ],
+            "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
+            "keywords": [
+                "PHPExcel",
+                "batch",
+                "csv",
+                "excel",
+                "export",
+                "import",
+                "laravel"
+            ],
+            "time": "2016-08-28 20:25:51"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.21.0",
             "source": {
@@ -1774,6 +1841,155 @@
             "time": "2015-05-06 18:49:49"
         },
         {
+            "name": "phpoffice/phpexcel",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPExcel.git",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "http://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://blog.rootslabs.net"
+                },
+                {
+                    "name": "Erik Tilt"
+                }
+            ],
+            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "http://phpexcel.codeplex.com",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "time": "2015-05-01 07:00:55"
+        },
+        {
+            "name": "phpseclib/phpseclib",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpseclib/phpseclib.git",
+                "reference": "41f85e9c2582b3f6d1b7d20395fb40c687ad5370"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/41f85e9c2582b3f6d1b7d20395fb40c687ad5370",
+                "reference": "41f85e9c2582b3f6d1b7d20395fb40c687ad5370",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "~4.0",
+                "sami/sami": "~2.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "suggest": {
+                "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
+                "ext-libsodium": "SSH2/SFTP can make use of some algorithms provided by the libsodium-php extension.",
+                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
+                "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "phpseclib/bootstrap.php"
+                ],
+                "psr-4": {
+                    "phpseclib\\": "phpseclib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Wigginton",
+                    "email": "terrafrost@php.net",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Patrick Monnerat",
+                    "email": "pm@datasphere.ch",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Andreas Fischer",
+                    "email": "bantu@phpbb.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Hans-Jürgen Petrich",
+                    "email": "petrich@tronic-media.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Secure Communications Library - Pure-PHP implementations of RSA, AES, SSH2, SFTP, X.509 etc.",
+            "homepage": "http://phpseclib.sourceforge.net",
+            "keywords": [
+                "BigInteger",
+                "aes",
+                "asn.1",
+                "asn1",
+                "blowfish",
+                "crypto",
+                "cryptography",
+                "encryption",
+                "rsa",
+                "security",
+                "sftp",
+                "signature",
+                "signing",
+                "ssh",
+                "twofish",
+                "x.509",
+                "x509"
+            ],
+            "time": "2016-08-18 18:49:14"
+        },
+        {
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -2015,16 +2231,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v3.21.0",
+            "version": "v3.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "0f4f89094b6a1ba9c9c1b5c32358d8d0acc19682"
+                "reference": "c8c8d384636b6b78c4c17e2b00102e914f0b7cc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/0f4f89094b6a1ba9c9c1b5c32358d8d0acc19682",
-                "reference": "0f4f89094b6a1ba9c9c1b5c32358d8d0acc19682",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c8c8d384636b6b78c4c17e2b00102e914f0b7cc5",
+                "reference": "c8c8d384636b6b78c4c17e2b00102e914f0b7cc5",
                 "shasum": ""
             },
             "require": {
@@ -2066,7 +2282,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2016-08-25 22:58:28"
+            "time": "2016-09-13 18:14:15"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2180,6 +2396,59 @@
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
             "time": "2016-08-19 06:48:39"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "2851e1932d77ce727776154d659b232d061e816a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/2851e1932d77ce727776154d659b232d061e816a",
+                "reference": "2851e1932d77ce727776154d659b232d061e816a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "symfony/debug",
@@ -2700,16 +2969,16 @@
         },
         {
             "name": "symfony/psr-http-message-bridge",
-            "version": "v0.2",
+            "version": "v0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/psr-http-message-bridge.git",
-                "reference": "dc7e308e1dc2898a46776e2221a643cb08315453"
+                "reference": "7a5aa925c686fb8a6de909d0562fdb17502dcc76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/dc7e308e1dc2898a46776e2221a643cb08315453",
-                "reference": "dc7e308e1dc2898a46776e2221a643cb08315453",
+                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/7a5aa925c686fb8a6de909d0562fdb17502dcc76",
+                "reference": "7a5aa925c686fb8a6de909d0562fdb17502dcc76",
                 "shasum": ""
             },
             "require": {
@@ -2721,6 +2990,7 @@
                 "symfony/phpunit-bridge": "~2.7|~3.0"
             },
             "suggest": {
+                "psr/http-message-implementation": "To use the HttpFoundation factory",
                 "zendframework/zend-diactoros": "To use the Zend Diactoros factory"
             },
             "type": "symfony-bridge",
@@ -2750,7 +3020,7 @@
                 "http-message",
                 "psr-7"
             ],
-            "time": "2015-05-29 17:57:12"
+            "time": "2016-08-18 14:44:25"
         },
         {
             "name": "symfony/routing",
@@ -2955,6 +3225,53 @@
             "time": "2016-08-31 09:05:42"
         },
         {
+            "name": "tijsverkoyen/css-to-inline-styles",
+            "version": "1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
+                "reference": "9753fc340726e327e4d48b7c0604f85475ae0bc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/9753fc340726e327e4d48b7c0604f85475ae0bc3",
+                "reference": "9753fc340726e327e4d48b7c0604f85475ae0bc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/css-selector": "~2.1|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TijsVerkoyen\\CssToInlineStyles\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Tijs Verkoyen",
+                    "email": "css_to_inline_styles@verkoyen.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+            "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+            "time": "2015-12-08 16:14:14"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -3006,16 +3323,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.3.5",
+            "version": "1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "b1d59735b672865dbeb930805029c24f226e3e77"
+                "reference": "a60da179c37f2c4e44ef734d0b92824a58943f7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/b1d59735b672865dbeb930805029c24f226e3e77",
-                "reference": "b1d59735b672865dbeb930805029c24f226e3e77",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/a60da179c37f2c4e44ef734d0b92824a58943f7f",
+                "reference": "a60da179c37f2c4e44ef734d0b92824a58943f7f",
                 "shasum": ""
             },
             "require": {
@@ -3026,7 +3343,7 @@
                 "psr/http-message-implementation": "~1.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.6",
+                "phpunit/phpunit": "^4.6 || ^5.5",
                 "squizlabs/php_codesniffer": "^2.3.1"
             },
             "type": "library",
@@ -3052,7 +3369,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2016-03-17 18:02:05"
+            "time": "2016-09-07 17:57:29"
         }
     ],
     "packages-dev": [
@@ -3270,16 +3587,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/da8529775f14f4fdae33f916eb0cf65f6afbddbc",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/94e5ca3e90aa5b34663780393e10914f7438f991",
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991",
                 "shasum": ""
             },
             "require": {
@@ -3308,7 +3625,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-06 16:07:05"
+            "time": "2016-09-07 15:34:10"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -4411,59 +4728,6 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-02-04 12:56:52"
-        },
-        {
-            "name": "symfony/css-selector",
-            "version": "v3.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/css-selector.git",
-                "reference": "2851e1932d77ce727776154d659b232d061e816a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/2851e1932d77ce727776154d659b232d061e816a",
-                "reference": "2851e1932d77ce727776154d659b232d061e816a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\CssSelector\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony CssSelector Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "symfony/dom-crawler",

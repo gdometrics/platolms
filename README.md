@@ -65,5 +65,8 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
  - Grading
 - Notifications/Settings (tbd)
 
+### Misc
+- Check __destroy() method on file upload
+
 ### Wishlist
 - Two-Factor Auth Controls
