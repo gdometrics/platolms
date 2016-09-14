@@ -41,7 +41,7 @@ class ResizeImage
 			$image = \Image::make($path . $file);
 			
 			// resize img instance
-			$image->resize(350, 350);
+			$image->resize(Config::get('settings.user_image_resize'), Config::get('settings.user_image_resize'));
 			
 			// save img in desired format
 			$image->save($path . 'resized/' . $file);

@@ -104,6 +104,11 @@
                 return '<img src="' . $img . '" class="' . $class . '" width="'.$size.'" style="'.$style.'">';
 	        } else {
 
+	        	if ($size < Config::get('settings.user_image_resize'))
+	        	{
+		            return '<img src="/avatars/r/'. $id . '/' . $img . '" width="'.$size.'" class="' . $class . '" style="'.$style.'">';
+	        	}
+
 	            return '<img src="/avatars/'. $id . '/' . $img . '" width="'.$size.'" class="' . $class . '" style="'.$style.'">';
 	        }
 
