@@ -70,3 +70,11 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 
 ### Wishlist
 - Two-Factor Auth Controls
+
+### Feature List
+- User Management
+ - User profiles
+ - User roles
+ - User import via CSV/XLS
+
+
