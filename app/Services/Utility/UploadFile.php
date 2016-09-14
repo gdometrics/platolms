@@ -7,6 +7,7 @@ use File;
 use Auth;
 use Storage;
 use Log;
+use App\Services\Utility\ResizeImage as ResizeImage;
 
 class UploadFile
 {
@@ -16,10 +17,11 @@ class UploadFile
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ResizeImage $resize)
     {
         $this->tempPath = storage_path() . 'app/temp/';
         $this->tempPath_relative = '/temp/';
+        $this->resize = $resize;
     }
 
     /**
@@ -32,13 +34,19 @@ class UploadFile
 
        try {
 
-            $this->cleanOutFolder(storage_path() . '/app/uploads/' . $id . '/avatar/');
+            // Set the path
+            $path = storage_path() . '/app/uploads/' . $id . '/avatar/';
+
+            $this->cleanOutFolder($path);
+
+            $userImage = $this->upload($file, 'uploads/' . $id . '/avatar/', 'public');            
+
+            $this->resize->resizeImage($userImage, $path);
 
             // return the filename in a string format
-            return $this->upload($file, 'uploads/' . $id . '/avatar/', 'public');
+            return $userImage;
             
-        } catch(Exception $e)
-        {
+        } catch(Exception $e) {
             
             throw $e;
             
@@ -59,8 +67,7 @@ class UploadFile
             // return the filename in a string format
             return $this->upload($file, 'temp/'.date('dmyHis'));
             
-        } catch(Exception $e)
-        {
+        } catch(Exception $e) {
             
             throw $e;
             
@@ -112,8 +119,7 @@ class UploadFile
             return $this->tempPath_relative . $fileNamed;
             return 'File Not Found';            
             
-        } catch(Exception $e)
-        {
+        } catch(Exception $e) {
             
             throw $e;
             

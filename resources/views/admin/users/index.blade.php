@@ -27,7 +27,7 @@
                                     {!! makeRoleLabel($user->getHighestRole()['name'], true) !!}
                                 </td>
                                 <td>
-                                    {!! getUserImage($user->id, 45, 'float-left img-circle') !!}
+                                    {!! getUserImage($user->id, $user->img, $user->email, 45, 'float-left img-circle') !!}
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.users.show', $user->id) }}">

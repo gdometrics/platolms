@@ -158,7 +158,12 @@ Route::get('/home', 'Portal\HomeController@index')->name('home');
 
 // File Routes
 Route::get('avatars/{id}/{img}', function ($id, $img) {
-    return \Image::make(storage_path() . '/app/uploads/'.$id.'/avatar/' . $img)->response();
+    $path = storage_path() . '/app/uploads/' . $id . '/avatar/';
+	if (File::isDirectory($path . 'resized/') and $path . 'resized/') 
+	{
+	    return \Image::make($path . 'resized/' . $img)->response();
+	}
+    return \Image::make($path . $img)->response();
 });
 
 // Auth Routes
