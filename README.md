@@ -18,7 +18,7 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 - Take another design pass
 
 ### Dev (Admin)
-- Users (@todo: Delete User, Assign Role)
+- Users (@todo: Delete User, Assign Role, User Tags, User Metric charts on FE Dash, Pagination/Sorting, On batch upload, make sure the array object returned can be easily counted)
 - Roles (@todo: Create, Edit, Update, Delete, Assigning Roles, See All Users By Role)
 - Students
 - Transcripts
@@ -67,6 +67,10 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 
 ### Misc
 - Check __destroy() method on file upload
+
+### Listeners to be Created
+- *Model* Users Created
+- *Model* Users Deleted
 
 ### Wishlist
 - Two-Factor Auth Controls
