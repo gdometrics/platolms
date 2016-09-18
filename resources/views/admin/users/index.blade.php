@@ -2,16 +2,19 @@
 
 @section('styles')
 <style>
-    #user-table_length { padding-left:8px; }
-    #user-table_filter { padding-right:8px; }
+    #user-table { margin-bottom:20px; }
+    #user-table_length, #user-table_info { padding-left:8px; }
+    #user-table_filter, #user-table_paginate { padding-right:8px; }
 </style>
 @endsection
 
 @section('content')
     <div class="primary-content">
-        <div class="">
-            <h2 class="page-header mb30">All Users</h2>
-        </div>
+        <h2 class="page-header mb30">All Users
+            <span class="pull-right">
+                <small><span style="text-transform:uppercase;font-size:70%;font-weight:700;"><i class="fa fa-users"></i> Total Users: <span class="font-weight:400">{{ $users->count() }}</span></span></small>
+            </span>
+        </h2>
 
         @include('layouts.partials.flash')      
         @include('admin.users.partials.menu')
