@@ -6,6 +6,7 @@
             <h2 class="page-header mb30">All Roles</h2>
         </div>
 
+        @include('layouts.partials.flash')      
         @include('admin.roles.partials.menu')
 
         <div class="content-box">          

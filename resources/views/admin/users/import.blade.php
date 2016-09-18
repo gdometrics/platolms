@@ -6,6 +6,7 @@
             <h2 class="page-header mb30">Import Users</h2>
         </div>
 
+        @include('layouts.partials.flash')      
         @include('admin.users.partials.menu')
 
         <div class="content-box">          

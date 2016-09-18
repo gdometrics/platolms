@@ -1,4 +1,4 @@
-	<div  style="margin-left: -20px;margin-right: -20px;">
+	<div>
 	    @include('flash::message')	    
 	</div>
 	

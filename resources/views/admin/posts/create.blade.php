@@ -6,6 +6,7 @@
             <h2 class="page-header mb30">New Posts</h2>
         </div>
 
+        @include('layouts.partials.flash')      
         @include('admin.posts.partials.menu')
 
         <div class="content-box">          
