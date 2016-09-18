@@ -66,7 +66,7 @@ class PostRepository extends Repository
 	 */
 	public function paginatePosts(array $scopes, $limit = 15, $withTrashed = false)
 	{
-		return $this->paginate($this->table, $scopes, $limit, $withTrashed);
+		return $this->paginate($this->model, $scopes, $limit, $withTrashed);
 	}
 
 	/**

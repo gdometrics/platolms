@@ -30,7 +30,7 @@ class UsersController extends Controller
 	 */
 	public function index()
 	{
-		$users = $this->repository->getUsers();
+		$users = $this->repository->paginateUsers([], 20, false);
 		$menuTab = $this->menuTab;
 		return response()->view('admin.users.index', compact(['users', 'menuTab']));
 	}

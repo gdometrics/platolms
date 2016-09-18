@@ -28,7 +28,7 @@ class PostsController extends Controller
 	 */
 	public function index()
 	{
-		$posts = $this->repository->getPosts();
+		$posts = $this->repository->paginatePosts([], 20, false);
 		$menuTab = $this->menuTab;
 		return response()->view('admin.posts.index', compact(['posts', 'menuTab']));
 	}
