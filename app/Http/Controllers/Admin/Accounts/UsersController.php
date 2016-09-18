@@ -71,7 +71,6 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users',
         ]);
 
-    	// send to the user repository
         try
         {
         	$newUser = $this->repository->createUser($request->all());
@@ -114,7 +113,6 @@ class UsersController extends Controller
             'timezone' => 'timezone',
         ]);
 
-    	// send to the user repository
         try
         {
         	$updatedUser = $this->repository->updateUser($id, $request->all());
@@ -193,10 +191,8 @@ class UsersController extends Controller
             'avatar' => 'required|mimes:jpeg,bmp,png,gif,jpg,jpe'
         ]);
 
-    	// send to the user repository
         try
         {
-        	// First try to upload the image
 			try {
 
 				$userData = [
@@ -241,10 +237,8 @@ class UsersController extends Controller
             'file' => 'required|mimes:csv,txt,xls'
         ]);
 
-    	// send to the user repository
         try
         {
-        	// First try to upload the file
 			try {
 
 				$filePath = $upload->uploadTemporaryFile($request->file);
@@ -262,7 +256,7 @@ class UsersController extends Controller
         }
 
         // returns back with success message
-        flash()->success('Your users were added.');
+        flash()->success($uploadedUsers->count() . ' users were added.');
         return redirect()->action('Admin\Accounts\UsersController@index');
 	}
 
