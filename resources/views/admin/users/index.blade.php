@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('styles')
+<style>
+    #user-table_length { padding-left:8px; }
+    #user-table_filter { padding-right:8px; }
+</style>
+@endsection
+
 @section('content')
     <div class="primary-content">
         <div class="">
@@ -11,10 +18,10 @@
 
         <div class="content-box">          
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table id="user-table" class="table table-striped">
                     <thead>
                         <tr>
-                            <th style="width: 62px;padding-left:15px">User</th>
+                            <th style="width: 62px;">User</th>
                             <th style="width: 40px;"></th>
                             <th></th>
                             <th class="text-right">Actions</th>
@@ -24,7 +31,7 @@
                         @foreach ($users as $user)
 
                             <tr>
-                                <td style="padding-top: 20px;text-align: center;">
+                                <td style="padding-top: 20px;text-align: center;" data-order="{{ $user->first }} {{ $user->last }}">
                                     {!! makeRoleLabel($user->getHighestRole()['name'], true) !!}
                                 </td>
                                 <td>
@@ -48,10 +55,24 @@
                         @endforeach
                     </tbody>
                 </table>
-
-                {{ $users->links() }}
             </div>
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="/js/datatables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#user-table').DataTable( {
+              "columns": [
+                null,
+                { "orderable": false },
+                { "orderable": false },
+                { "orderable": false },
+              ]
+            } );
+        } );
+    </script>
 @endsection

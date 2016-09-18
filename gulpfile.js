@@ -13,11 +13,12 @@ elixir(mix => {
 	// Compile My Sass
     mix.sass([
     	'app.scss',
+        '../vendor/Datatables/datatables.min.css'
     ]);
 
 	// Combine my scripts
 	mix.webpack([
-        'app.js'
+        'app.js',
 	]);
 
 	// Cache Bust those!
