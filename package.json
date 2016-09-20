@@ -17,6 +17,7 @@
     "vue-resource": "^0.9.3"
   },
   "dependencies": {
-    "chart.js": "^2.2.2"
+    "chart.js": "^2.2.2",
+    "sweetalert2": "^5.0.3"
   }
 }

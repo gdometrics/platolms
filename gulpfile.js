@@ -14,7 +14,6 @@ elixir(mix => {
 	// Compile My Sass
     mix.sass([
     	'app.scss',
-        '../vendor/Datatables/datatables.min.css',
         npmRoot + 'sweetalert2/dist/sweetalert2.min.css'
     ]);
 

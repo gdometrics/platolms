@@ -31,4 +31,18 @@ return [
     */
     'user_image_resize' => 250,
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | User Archive Limit (in Days)
+    |--------------------------------------------------------------------------
+    |
+    | Here, you can customize the number of days that you wish to keep the
+    | records of deleted student accounts. At the end of this interval,
+    | any student accounts in the trash, and their data will be moved 
+    | out of the system for cold storage.
+    |
+    */
+    'user_archive_limit' => 30,
+
 ];

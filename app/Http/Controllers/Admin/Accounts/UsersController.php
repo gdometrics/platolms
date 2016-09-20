@@ -30,7 +30,8 @@ class UsersController extends Controller
 	 */
 	public function index()
 	{
-		$users = $this->repository->paginateUsers([], 20, false);
+		$users = $this->repository->paginateUsers([], 30, false);
+		// $users = $this->repository->getUsers();
 		$menuTab = $this->menuTab;
 		return response()->view('admin.users.index', compact(['users', 'menuTab']));
 	}
@@ -260,4 +261,22 @@ class UsersController extends Controller
         return redirect()->action('Admin\Accounts\UsersController@index');
 	}
 
+	/**
+	 * Archive the user
+	 *
+	 * @return Boolean
+	 */
+	public function destroy($id)
+	{
+        try
+        {
+        	$this->repository->deleteUser($id);
+
+        } catch(\Exception $exception)
+        {
+	        return response()->json(['success' => false]);
+        }
+
+        return response()->json(['success' => true]);
+	}
 }
