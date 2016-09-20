@@ -22,7 +22,7 @@
         <div class="content-box">      
 
             <div class="row">
-                <div class="user-heading text-left {{ getColumns(6) }}" style="padding-left: 30px;">
+                <div class="user-heading text-left {{ getColumns(6) }}" style="padding-left: 24px;">
                     <p style="top: 46px;position: relative;"><strong>Users</strong></p>
                 </div>
                 <div class="user-actions text-right {{ getColumns(6) }}">
