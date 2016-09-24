@@ -40,6 +40,10 @@ p {
 	border-radius: 0px;
 }
 
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    opacity: 0.35;
+}
+
 .navbar-default {
 	background: #f3f3f3;
 	margin-bottom:0px;

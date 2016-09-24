@@ -36,6 +36,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 		Route::post('/users/{user}/authentication', 'UsersController@updateAuth')->name('users.update.auth');
 		Route::get('/users/{user}/avatar', 'UsersController@editAvatar')->name('users.edit.avatar');
 		Route::post('/users/{user}/avatar', 'UsersController@updateAvatar')->name('users.update.avatar');
+		Route::post('/users/delete/multiple', 'UsersController@deleteMultipleUsers')->name('users.delete.multiple');
 		Route::resource('users', 'UsersController');
 
 	});

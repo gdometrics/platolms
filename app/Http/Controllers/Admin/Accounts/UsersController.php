@@ -268,6 +268,7 @@ class UsersController extends Controller
 	 */
 	public function destroy($id)
 	{
+
         try
         {
         	$this->repository->deleteUser($id);
@@ -279,4 +280,29 @@ class UsersController extends Controller
 
         return response()->json(['success' => true]);
 	}
+
+
+	/**
+	 * Archive the users
+	 *
+	 * @return Boolean
+	 */
+	public function deleteMultipleUsers(Request $request)
+	{
+        $validator = $this->validate($request, [
+            'data' => 'required|array'
+        ]);
+
+        try
+        {
+        	$this->repository->deleteUsers($request->data);
+
+        } catch(\Exception $exception)
+        {
+	        return response()->json(['success' => false]);
+        }
+
+        return response()->json(['success' => true]);
+	}	
+
 }

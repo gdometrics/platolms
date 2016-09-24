@@ -27,9 +27,9 @@
                 </div>
                 <div class="user-actions text-right {{ getColumns(6) }}">
                     <ul class="breadcrumb" style="background:transparent;margin-bottom: 0px;padding-right:8px;">
-                        <li><a href="" class="btn btn-link disabled" style="padding:0px;opacity: .4">Delete All</a></li>
-                        <li><a href="" class="btn btn-link disabled" style="padding:0px;opacity: .4">Assign Role</a></li>
-                        <li><a href="" class="btn btn-link disabled" style="padding:0px;opacity: .4">Assign Tag</a></li>
+                        <li><a class="btn btn-link" v-bind:class="disabledClassObject" style="padding:0px;" @click.prevent="deleteMultipleUsers($event)">Delete All</a></li>
+                        <li><a href="" class="btn btn-link" v-bind:class="disabledClassObject" style="padding:0px;" @click.prevent="assignRoleToMultipleUsers($event)">Assign Role</a></li>
+                        <li><a href="" class="btn btn-link" v-bind:class="disabledClassObject" style="padding:0px;" @click.prevent="assignTagToMultipleUsers($event)">Assign Tag</a></li>
                 </div>
             </div>
             
@@ -48,7 +48,7 @@
                         @foreach ($users as $user)
 
                             <tr id="{{ $user->id }}">
-                                <td style="padding-top: 21px;text-align: center;"><input id="{{ $user->id }}" type="checkbox"></td>
+                                <td style="padding-top: 21px;text-align: center;"><input  id="{{ $user->id }}" type="checkbox" @click="addUserToSelectedUsersArray({!! $user->id !!}, $event)"></td>
                                 <td style="padding-top: 20px;text-align: center;">
                                     {!! makeRoleLabel($user->getHighestRole()['name'], true) !!}
                                 </td>
@@ -66,7 +66,7 @@
                                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
                                     <a href="{{ route('admin.users.edit.auth', $user->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-lock"></i></a>
                                     <a href="{{ route('admin.users.edit.avatar', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-user"></i></a>
-                                    <a @click.prevent="confirmDelete({!! $user->id !!}, $event)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-danger btn-sm" @click.prevent="confirmDelete({!! $user->id !!}, $event)"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
 
@@ -87,16 +87,89 @@
 @section('scripts')
     <script>
             // SweetAlert -> Send the AJAX Call to Delete the User w/ Confirmation & Error States
-            const userArchiveLimit = {!! Config::get('settings.user_archive_limit') !!}
-            const adminURI = "{!! env('ADMIN_URI') !!}"
-            
+            const userArchiveLimit = {!! Config::get('settings.user_archive_limit') !!};
+            const adminURI = "{!! env('ADMIN_URI') !!}";
+            const selectedUsers = [];
+            const disabledClassObject = {
+                        'disabled': true,
+                        'enabled': false
+                    };
+
             const vm = new Vue({
                 el: '#page-content',
                 data: {
-                    name: 'Vue.js'
+                    name: 'Vue.js',
+                    selectedUsers: selectedUsers,
+                    disabledClassObject: disabledClassObject,
                 },
                 // define methods under the `methods` object
                 methods: {
+                    addUserToSelectedUsersArray: function (id, event) {
+                        // check if is in array
+                        if (selectedUsers.includes(id))
+                        {
+                            var index = selectedUsers.indexOf(id);
+                            if (index > -1) {
+                                selectedUsers.splice(index, 1);
+                            }
+                        } else {
+                            selectedUsers.push(id);
+                        }
+                        // disabled buttons based on state
+                        if(selectedUsers.length > 0){
+                            disabledClassObject.disabled = false;
+                            disabledClassObject.enabled = true;
+                        } else {
+                            disabledClassObject.disabled = true;
+                            disabledClassObject.enabled = false;
+                        }
+                    },
+                    deleteMultipleUsers: function (users, event) {
+                        swal({
+                            title: 'Are you sure?',
+                            text: "The users, and their information, will be removed from the archive in " + userArchiveLimit + " days!",
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'Yes, delete it!',
+                            cancelButtonText: 'No, cancel!',
+                            confirmButtonClass: 'btn btn-success mr20',
+                            cancelButtonClass: 'btn btn-danger',
+                            buttonsStyling: false
+                        })
+                        .then(function() {
+                            // Send the AJAX that deletes the user
+                            Vue.http.post('/' + adminURI + '/users/delete/multiple', {'data': selectedUsers}).then((response) => {
+                                for (var id in selectedUsers)
+                                {
+                                    $('#' + selectedUsers[id]).hide();
+                                }
+                                swal({
+                                    title: 'Archive Complete',
+                                    text: "This user has been archived.",
+                                    type: 'success',
+                                    showCancelButton: false,
+                                    confirmButtonText: 'Got it!',
+                                    confirmButtonClass: 'btn btn-success',
+                                    buttonsStyling: false
+                                })
+                            }, (response) => {
+                                console.log(response);
+                                // error callback
+                                swal(
+                                    'Sorry!',
+                                    'There was an error with your request!',
+                                    'error'
+                                )
+                            });
+                        }, function(dismiss) {
+                        })
+                    },
+                    assignRoleToMultipleUsers: function (users, event) {
+                        // send selected users to array
+                    },
+                    assignTagToMultipleUsers: function (users, event) {
+                        // send selected users to array
+                    },
                     confirmDelete: function (id, event) {
                         swal({
                             title: 'Are you sure?',
@@ -110,10 +183,8 @@
                             buttonsStyling: false
                         })
                         .then(function() {
-
                             // Send the AJAX that deletes the user
                             Vue.http.delete('/' + adminURI + '/users/' + id, {}).then((response) => {
-
                                 $('#' + id).hide();
                                 swal({
                                     title: 'Archive Complete',
@@ -124,7 +195,6 @@
                                     confirmButtonClass: 'btn btn-success',
                                     buttonsStyling: false
                                 })
-
                             }, (response) => {
                                 console.log(response);
                                 // error callback
@@ -133,8 +203,7 @@
                                     'There was an error with your request!',
                                     'error'
                                 )
-                            });                            
-
+                            });
                         }, function(dismiss) {
                         })
                     }
