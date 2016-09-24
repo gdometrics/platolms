@@ -65,7 +65,7 @@
 				}
 				break;
 			case 'Instructor';
-				$label = 'success';
+				$label = 'default';
 				$role = 'Instructor';			
 				if ($abbreviation)
 				{
