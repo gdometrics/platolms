@@ -73,6 +73,8 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 - *Model* Users Archived
 - Users Deleted
 
+### Customized Classes to Add
+- text-sub-header-color : any heading below H2
 
 ### Wishlist
 - Two-Factor Auth Controls

@@ -14,7 +14,7 @@
 
                     <div class="{{ getColumns(7) }}">
 
-                        <h4 class="mb30 text-warning">Profile Information</h4>
+                        <h4 class="mb30 text-warning text-sub-header-color">Profile Information</h4>
 
                         {!! Form::open(['route' => ['admin.users.update', $user->id], 'id' => 'form', 'method' => 'put', 'files' => 'true']) !!}
 
@@ -29,7 +29,7 @@
 
                             {!! makeEmailField('email', 'Email', $user->email, '', 'required', $errors) !!}
     
-                            <h4 class="mb30 text-warning" style="margin-top:60px">Extended Profile Information</h4>
+                            <h4 class="mb30 text-warning text-sub-header-color" style="margin-top:60px">Extended Profile Information</h4>
 
                             {!! makeTextAreaField('bio', 'Tell your community a little about yourself', $user->bio, '', 'not-required', $errors) !!}
 
@@ -68,7 +68,7 @@
                             <div class="row">
 
                                 <div class="{{ getColumns(12) }}">
-                                    <h4 class="mb30 text-warning">Profile Avatar</h4>
+                                    <h4 class="mb30 text-warning text-sub-header-color">Profile Avatar</h4>
                                 </div>
 
                                 @if (Config::get('settings.user_image_policy') != '')
