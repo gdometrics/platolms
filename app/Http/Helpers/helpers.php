@@ -82,7 +82,11 @@
 				break;
 			default:
 				$label = 'success';
-				$role = 'S';
+				$role = 'Student';
+				if ($abbreviation)
+				{
+					$role = 'S';
+				}
 		}
 
 		return '<span class="label label-'.$label.'">'.$role.'</span>';
