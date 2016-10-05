@@ -1,22 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="{{ getColumns(8) }}">
+    <div class="primary-content" id="page-content">
+        <h2 class="page-header mb30">{!! ucfirst(env('ADMIN_NAME')) !!} Dashboard</h2>
 
-        <div class="">
-            <h2 class="page-header mb30">{!! ucfirst(env('ADMIN_NAME')) !!} Dashboard</h2>
-        </div>
+        @include('layouts.partials.flash')
 
-        <div class="panel panel-default">
-            <div class="panel-heading"></div>
-
-            <div class="panel-body">
-                You are logged in!
-            </div>
+        <div class="content-box">      
+            You are logged in!
         </div>
     </div>
-@endsection
-
-@section('sidebar')
-    @include('layouts.sidebar')
 @endsection
