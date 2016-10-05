@@ -5,8 +5,9 @@
         <a href="{{ route('admin.students.index') }}" class="list-group-item @if (isset($menuTab) && ($menuTab == 'users')) active @endif">Students</a>
     </div>
 
-    <h5>Blog</h5>
+    <h5>Portal</h5>
     <div class="list-group">
+        <a href="{{ route('admin.pages.index') }}" class="list-group-item @if (isset($menuTab) && ($menuTab == 'pages')) active @endif">Pages</a>
         <a href="{{ route('admin.posts.index') }}" class="list-group-item @if (isset($menuTab) && ($menuTab == 'posts')) active @endif">Posts</a>
         <a href="" class="list-group-item @if (isset($menuTab) && ($menuTab == 'categories')) active @endif">Categories</a>
         <a href="" class="list-group-item @if (isset($menuTab) && ($menuTab == 'tags')) active @endif">Tags</a>
