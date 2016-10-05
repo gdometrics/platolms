@@ -31,9 +31,10 @@ class UsersController extends Controller
 	public function index()
 	{
 		$users = $this->repository->paginateUsers([], 30, false);
+		$roles = \App\Models\Role::all();
 		// $users = $this->repository->getUsers();
 		$menuTab = $this->menuTab;
-		return response()->view('admin.users.index', compact(['users', 'menuTab']));
+		return response()->view('admin.users.index', compact(['users', 'roles', 'menuTab']));
 	}
 
 	/**
@@ -268,7 +269,6 @@ class UsersController extends Controller
 	 */
 	public function destroy($id)
 	{
-
         try
         {
         	$this->repository->deleteUser($id);
@@ -281,7 +281,6 @@ class UsersController extends Controller
         return response()->json(['success' => true]);
 	}
 
-
 	/**
 	 * Archive the users
 	 *
@@ -290,12 +289,12 @@ class UsersController extends Controller
 	public function deleteMultipleUsers(Request $request)
 	{
         $validator = $this->validate($request, [
-            'data' => 'required|array'
+            'users' => 'required|array'
         ]);
 
         try
         {
-        	$this->repository->deleteUsers($request->data);
+        	$this->repository->deleteUsers($request->users);
 
         } catch(\Exception $exception)
         {
@@ -305,4 +304,45 @@ class UsersController extends Controller
         return response()->json(['success' => true]);
 	}	
 
+	/**
+	 * Attaches Roles to the User, returns back the name of the higest role
+	 *
+	 * @return Boolean
+	 */
+	public function attachRoles(Request $request)
+	{
+        $validator = $this->validate($request, [
+            'users' => 'required|array',
+            'role' => 'required|array',
+        ]);
+
+        try
+        {
+
+        	$returnedUsers = [];
+
+        	foreach ($request->users as $user)
+        	{
+				$userRecord = $this->repository->getUser($user);
+				$userRecord->roles()->syncWithoutDetaching($request->role);
+
+				$userRoleLabels = '';
+				foreach ($userRecord->roles as $role)
+				{
+					$userRoleLabels .= makeRoleLabel($role->name, false);
+				}
+
+				$returnedUsers[] = [
+					'id' => $userRecord->id,
+					'roles' => $userRoleLabels,
+				];
+        	}
+
+        } catch(\Exception $exception)
+        {
+	        return response()->json(['success' => false]);
+        }
+
+        return response()->json(['success' => true, 'returnedUsers' => $returnedUsers]);
+	}	
 }

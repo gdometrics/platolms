@@ -89,7 +89,7 @@
 				}
 		}
 
-		return '<span class="label label-'.$label.'">'.$role.'</span>';
+		return '<span class="label label-'.$label.'" style="margin-right: 4px;">'.$role.'</span>';
 	}
 
 	/**
