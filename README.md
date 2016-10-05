@@ -19,7 +19,6 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
 
 ### Dev (Admin)
 - Users (@todo: User Tags, Add Role/Tag to Create/Update User, Clean up design on create/update password user views)
-- Roles (@todo: CHANGE TO HARD CODE.... Create, Edit, Update, Delete, Assigning Roles, See All Users By Role)
 - Students
 - Transcripts
 - Courses
@@ -43,6 +42,7 @@ Plato is open-sourced software licensed under the [MIT license](http://opensourc
  - Replies
 - Pages (tbd)
 - Invoices
+- Roles (@todo: CHANGE TO HARD CODE.... Create, Edit, Update, Delete, Assigning Roles, See All Users By Role)
 
 ### Dev (Logged In User)
 - Accounts

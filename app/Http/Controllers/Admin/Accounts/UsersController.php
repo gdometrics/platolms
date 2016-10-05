@@ -34,7 +34,25 @@ class UsersController extends Controller
 		$roles = \App\Models\Role::all();
 		// $users = $this->repository->getUsers();
 		$menuTab = $this->menuTab;
-		return response()->view('admin.users.index', compact(['users', 'roles', 'menuTab']));
+		$title = 'Users';
+		return response()->view('admin.users.index', compact(['users', 'title', 'roles', 'menuTab']));
+	}
+
+	/**
+	 * Show the admin users panel
+	 *
+	 * @return Response
+	 */
+	public function admins()
+	{
+		$users = \App\Models\User::whereHas(
+		    'roles', function($q){
+		        $q->where('name', '!=', env('STUDENT_LABEL', 'Student'));
+		    })->paginate();
+		$roles = \App\Models\Role::all();
+		$menuTab = 'admins';
+		$title = 'Admins';
+		return response()->view('admin.users.index', compact(['users', 'title', 'roles', 'menuTab']));
 	}
 
 	/**

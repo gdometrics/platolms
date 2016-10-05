@@ -30,7 +30,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 		// Transcripts
 		Route::resource('transcripts', 'TranscriptsController');
 		// Users
-		Route::get('/users/import', 'UsersController@importUsers')->name('users.import');
+		Route::get('/admins', 'UsersController@admins')->name('admins.index');
+		Route::get('/users/import/{type}', 'UsersController@importUsers')->name('users.import');
 		Route::post('/users/import', 'UsersController@addMultipleUsers')->name('users.upload.multiple');
 		Route::get('/users/{user}/authentication', 'UsersController@editAuth')->name('users.edit.auth');
 		Route::post('/users/{user}/authentication', 'UsersController@updateAuth')->name('users.update.auth');

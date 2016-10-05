@@ -10,20 +10,28 @@
 
 @section('content')
     <div class="primary-content" id="page-content">
-        <h2 class="page-header mb30">All Users
+        <h2 class="page-header mb30">All {{ $title }}
             <span class="pull-right">
-                <small><span style="text-transform:uppercase;font-size:70%;font-weight:700;"><i class="fa fa-users"></i> Total Users: <span class="font-weight:400">{{ $users->count() }}</span></span></small>
+                <small>
+                    <span style="font-size:70%;font-weight:700;">
+                            @if ($title == 'students') <a href="{{ route('admin.students.create') }}"> @else <a href="{{ route('admin.users.create') }}"> @endif
+                            <i class="fa fa-user"></i> &nbsp; New {{ substr($title, 0, -1) }}
+                            </a>
+                    </span>
+                    <span style="margin-left:15px;font-size:70%;font-weight:700;">
+                            <a href="{{ route('admin.users.import', strtolower($title)) }}"><i class="fa fa-upload"></i> &nbsp; Import {{ $title }}</a>
+                    </span>
+                </small>
             </span>
         </h2>
 
         @include('layouts.partials.flash')      
-        @include('admin.users.partials.menu')
 
         <div class="content-box">      
 
             <div class="row">
                 <div class="user-heading text-left {{ getColumns(6) }}" style="padding-left: 24px;">
-                    <p style="top: 46px;position: relative;"><strong>Users</strong></p>
+                    <p style="top: 46px;position: relative;"><strong>{{ $title }}</strong></p>
                 </div>
                 <div class="user-actions text-right {{ getColumns(6) }}">
                     <ul class="breadcrumb" style="background:transparent;margin-bottom: 0px;padding-right:8px;">
@@ -55,7 +63,14 @@
                                     <a href="{{ route('admin.users.show', $user->id) }}">
                                     {{ $user->first }} {{ $user->last }}</a> 
                                     <br/>
-                                    <small>{{ $user->email }}</small> <span id="rolediv-{{ $user->id }}">@foreach ($user->roles as $role) {!! makeRoleLabel($role->name, false) !!} @endforeach</span>
+                                    <small>{{ $user->email }}</small> 
+                                        <span id="rolediv-{{ $user->id }}">
+                                            @if ($user->getHighestRole()->name != env('STUDENT_LABEL', 'Student'))
+                                                @foreach ($user->roles as $role) 
+                                                    {!! makeRoleLabel($role->name, false) !!} 
+                                                @endforeach
+                                            @endif
+                                        </span>
                                 </td>
                                 <td class="text-right" style="padding-top: 15px;">
                                     <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-success btn-sm"><i class="fa fa-globe"></i></a>

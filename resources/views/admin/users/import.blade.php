@@ -7,7 +7,6 @@
         </div>
 
         @include('layouts.partials.flash')      
-        @include('admin.users.partials.menu')
 
         <div class="content-box">          
 

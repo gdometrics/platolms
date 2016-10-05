@@ -54,6 +54,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the role of the user
+     */
+    public function adminRoles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'roles_users');
+    }
+
+    /**
      * Get the highest role that a user has
      */
     public function getHighestRole()
