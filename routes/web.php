@@ -42,16 +42,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => env('ADMIN_URI'), 'middleware'
 
 	});
 
-	// Blog
-	Route::group(['namespace' => 'Blog', 'as' => 'admin.'], function () 
+	// Site
+	Route::group(['namespace' => 'Site', 'as' => 'admin.'], function () 
 	{
-		// Categories
+		// Blog Categories
 		Route::resource('categories', 'CategoriesController');
-		// Posts
+		// Site Pages
+		Route::resource('sitepages', 'SitePagesController');
+		// Blog Posts
 		Route::resource('posts', 'PostsController');
-		// Replies
+		// Blog Replies
 		Route::resource('replies', 'RepliesController');
-		// Tags
+		// Blog Tags
 		Route::resource('tags', 'TagsController');
 	});
 

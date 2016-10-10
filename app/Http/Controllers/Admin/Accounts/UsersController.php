@@ -45,10 +45,9 @@ class UsersController extends Controller
 	 */
 	public function admins()
 	{
-		$users = \App\Models\User::whereHas(
-		    'roles', function($q){
-		        $q->where('name', '!=', env('STUDENT_LABEL', 'Student'));
-		    })->paginate();
+		$users = \App\Models\User::whereHas('roles', function($q){
+		        	$q->where('name', '!=', env('STUDENT_LABEL', 'Student'));
+		    	})->paginate();
 		$roles = \App\Models\Role::all();
 		$menuTab = 'admins';
 		$title = 'Admins';

@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model 
 {
+
+    use SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -35,6 +38,16 @@ class Category extends Model
      *
      * @var array
      */
-    protected $dates = [];
+    protected $dates = [
+        'deleted_at',
+    ];
 
+    /**
+     * Get the posts in a category
+     */
+    public function posts()
+    {
+        return $this->belongsToMany('App\Models\Post');
+    }
+    
 }

@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model 
 {
+
+    use SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -35,6 +38,14 @@ class Post extends Model
      *
      * @var array
      */
-    protected $dates = [];
-
+    protected $dates = [
+        'deleted_at',
+    ];
+    /**
+     * Get the categories attached to a post
+     */
+    public function categories()
+    {
+        return $this->hasOne('App\Models\Category');
+    }
 }

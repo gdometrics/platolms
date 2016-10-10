@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>PlatoLMS</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">

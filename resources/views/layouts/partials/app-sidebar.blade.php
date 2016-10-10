@@ -9,8 +9,8 @@
     <div class="list-group">
         <a href="{{ route('admin.pages.index') }}" class="list-group-item @if (isset($menuTab) && ($menuTab == 'pages')) active @endif">Pages</a>
         <a href="{{ route('admin.posts.index') }}" class="list-group-item @if (isset($menuTab) && ($menuTab == 'posts')) active @endif">Posts</a>
-        <a href="" class="list-group-item @if (isset($menuTab) && ($menuTab == 'categories')) active @endif">Categories</a>
-        <a href="" class="list-group-item @if (isset($menuTab) && ($menuTab == 'tags')) active @endif">Tags</a>
+        <a href="{{ route('admin.categories.index') }}" class="list-group-item @if (isset($menuTab) && ($menuTab == 'categories')) active @endif">Categories</a>
+        <a href="{{ route('admin.tags.index') }}" class="list-group-item @if (isset($menuTab) && ($menuTab == 'tags')) active @endif">Tags</a>
     </div>
 
     <h5>Catalogue</h5>

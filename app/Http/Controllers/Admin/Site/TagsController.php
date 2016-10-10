@@ -1,16 +1,16 @@
 <?php 
 
-namespace App\Http\Controllers\Admin\Blog;
+namespace App\Http\Controllers\Admin\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class RepliesController extends Controller
+class TagsController extends Controller
 {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Replies Controller
+	| Tags Controller
 	|--------------------------------------------------------------------------
 	*/
 

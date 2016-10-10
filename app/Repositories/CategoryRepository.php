@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-class PostRepository extends Repository
+class CategoryRepository extends Repository
 {
 
 	/**
@@ -10,8 +10,8 @@ class PostRepository extends Repository
 	 */
 	public function __construct()
 	{
-		$this->table = 'posts';
-		$this->model = 'App\Models\Post';
+		$this->table = 'categories';
+		$this->model = 'App\Models\Category';
 	}
 
 	/**
@@ -20,9 +20,9 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPost($postIdOrIds)
+	public function getCategory($catIdOrIds)
 	{
-		return $this->find($this->model, $postIdOrIds);
+		return $this->find($this->model, $catIdOrIds);
 	}
 
 	/**
@@ -31,7 +31,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPostBy($field, $value)
+	public function getCategoryBy($field, $value)
 	{
 		return $this->findOneBy($this->model, $field, $value);
 	}
@@ -42,9 +42,9 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPostsByIds(array $postIds = null)
+	public function getCategoryByIds(array $catIds = null)
 	{
-		return $this->getPost($postIds);
+		return $this->getCategory($catIds);
 	}
 
 	/**
@@ -53,9 +53,9 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPosts(array $scopes = [])
+	public function getCategories(array $scopes = [])
 	{
-		return $this->findAllBy($this->table, $scopes);
+		return $this->findAllBy($this->model, $scopes);
 	}
 
 	/**
@@ -64,7 +64,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function paginatePosts(array $scopes, $limit = 15, $withTrashed = false)
+	public function paginateCategories(array $scopes, $limit = 15, $withTrashed = false)
 	{
 		return $this->paginate($this->model, $scopes, $limit, $withTrashed);
 	}
@@ -75,7 +75,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function createPost(array $postData)
+	public function createCategory(array $postData)
 	{
 		return $this->create($this->table, $postData);
 	}
@@ -86,9 +86,9 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updatePost($postId, array $postData)
+	public function updateCategory($catId, array $postData)
 	{
-		return $this->update($this->model, $postId, $postData);
+		return $this->update($this->model, $catId, $postData);
 	}
 
 	/**
@@ -97,9 +97,9 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deletePost($postId)
+	public function deleteCategory($catId)
 	{
-		return $this->delete($this->model, $postId);
+		return $this->delete($this->model, $catId);
 	}
 
 	/**
@@ -108,16 +108,16 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deletePosts(array $postIds)
+	public function deleteCategories(array $catIds)
 	{
-		$deletedPosts = [];
-		foreach ($postIds as $postId)
+		$deletedCategories = [];
+		foreach ($catIds as $catId)
 		{
-			$deletedPost = $this->deletePost($postId);
-			array_push($deletedPosts, $deletedPost);
+			$deletedCategory = $this->deleteCategory($catId);
+			array_push($deletedCategories, $deletedCategory);
 		}
 
-		return $deletedPosts;
+		return $deletedCategories;
 	}
 
 }

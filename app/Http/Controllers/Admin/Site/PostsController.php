@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Admin\Blog;
+namespace App\Http\Controllers\Admin\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,11 +26,20 @@ class PostsController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$posts = $this->repository->paginatePosts([], 20, false);
 		$menuTab = $this->menuTab;
-		return response()->view('admin.posts.index', compact(['posts', 'menuTab']));
+
+        if (is_null($request->cat))
+        {
+			$posts = $this->repository->paginatePosts([], 20, false);
+        } else {
+			$posts = \App\Models\Post::whereHas('categories', function($q){
+		        	$q->where('name', $request->cat);
+		    	})->paginate();
+        }
+
+		return response()->view('admin.posts.index', compact(['posts', 'menuTab', 'request']));
 	}
 
 	/**
@@ -38,10 +47,10 @@ class PostsController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
 		$menuTab = $this->menuTab;
-	    return response()->view('admin.posts.create', compact(['menuTab']));
+	    return response()->view('admin.posts.create', compact(['menuTab', 'request']));
 	}
 
 	/**
