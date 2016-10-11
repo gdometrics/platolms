@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-class PostRepository extends Repository
+class CategoryRepository extends Repository
 {
 
 	/**
@@ -10,8 +10,8 @@ class PostRepository extends Repository
 	 */
 	public function __construct()
 	{
-		$this->table = 'posts';
-		$this->model = 'App\Models\Post';
+		$this->table = 'categories';
+		$this->model = 'App\Models\Category';
 	}
 
 	/**
@@ -20,7 +20,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPost($entityIdOrIds)
+	public function getCategory($entityIdOrIds)
 	{
 		return $this->find($this->model, $entityIdOrIds);
 	}
@@ -31,7 +31,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPostBy($field, $value)
+	public function getCategoryBy($field, $value)
 	{
 		return $this->findOneBy($this->model, $field, $value);
 	}
@@ -42,7 +42,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPostsByIds(array $entityIds = null)
+	public function getCategoriesByIds(array $entityIds = null)
 	{
 		return $this->getPost($entityIds);
 	}
@@ -53,7 +53,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPosts(array $scopes = [])
+	public function getCategories(array $scopes = [])
 	{
 		return $this->findAllBy($this->table, $scopes);
 	}
@@ -64,7 +64,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function paginatePosts(array $scopes, $limit = 15, $withTrashed = false)
+	public function paginateCategories(array $scopes, $limit = 15, $withTrashed = false)
 	{
 		return $this->paginate($this->model, $scopes, $limit, $withTrashed);
 	}
@@ -75,7 +75,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function createPost(array $entityData)
+	public function createCategory(array $entityData)
 	{
 		return $this->create($this->table, $entityData);
 	}
@@ -86,7 +86,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updatePost($entityId, array $entityData)
+	public function updateCategory($entityId, array $entityData)
 	{
 		return $this->update($this->model, $entityId, $entityData);
 	}
@@ -97,7 +97,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deletePost($entityId)
+	public function deleteCategory($entityId)
 	{
 		return $this->delete($this->model, $entityId);
 	}
@@ -108,7 +108,7 @@ class PostRepository extends Repository
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deletePosts(array $entityIds)
+	public function deleteCategories(array $entityIds)
 	{
 		$deletedPosts = [];
 		foreach ($entityIds as $entityId)

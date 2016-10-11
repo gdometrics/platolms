@@ -15,7 +15,7 @@ class RoleRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get a collection.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -26,18 +26,18 @@ class RoleRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getRoles($roleIdOrIds)
+	public function getRoles($entityIdOrIds)
 	{
-		return $this->find($this->model, $userIdOrIds);
+		return $this->find($this->model, $entityIdOrIds);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -48,36 +48,36 @@ class RoleRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Create an entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function createRole(array $roleData)
+	public function createRole(array $entityData)
 	{
-		return $this->create($this->table, $roleData);
+		return $this->create($this->table, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Update the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updateRole($roleId, array $roleData)
+	public function updateRole($entityId, array $entityData)
 	{
-		return $this->update($this->model, $roleId, $roleData);
+		return $this->update($this->model, $entityId, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Delete the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deleteRole($roleId)
+	public function deleteRole($entityId)
 	{
-		return $this->delete($this->model, $roleId);
+		return $this->delete($this->model, $entityId);
 	}
 
 }

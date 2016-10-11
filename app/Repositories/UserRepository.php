@@ -15,18 +15,18 @@ class UserRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUser($userIdOrIds)
+	public function getUser($entityIdOrIds)
 	{
-		return $this->find($this->model, $userIdOrIds);
+		return $this->find($this->model, $entityIdOrIds);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -37,18 +37,18 @@ class UserRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get a collection by a fields.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getUsersByIds(array $userIds = null)
+	public function getUsersByIds(array $entityIds = null)
 	{
-		return $this->getUser($userIds);
+		return $this->getUser($entityIds);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get a collection.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -59,7 +59,7 @@ class UserRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Paginate the collection.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -70,33 +70,33 @@ class UserRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Create an entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function createUser(array $userData)
+	public function createUser(array $entityData)
 	{
-		if (!isset($userData['password']))
+		if (!isset($entityData['password']))
 		{
-			$userData['password'] = makeRandomPassword();
+			$entityData['password'] = makeRandomPassword();
 		}
 
-		return $this->create($this->table, $userData);
+		return $this->create($this->table, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Create multiple entities.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function createUsers(array $usersData)
+	public function createUsers(array $entitiesData)
 	{
 		$usersCreated = [];
-		foreach ($usersData as $userData)
+		foreach ($entitiesData as $entityData)
 		{
-			$user = $this->createUser($userData);
+			$user = $this->createUser($entityData);
 			array_push($usersCreated, $user);
 		}
 
@@ -104,41 +104,41 @@ class UserRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Update the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updateUser($userId, array $userData)
+	public function updateUser($entityId, array $entityData)
 	{
-		return $this->update($this->model, $userId, $userData);
+		return $this->update($this->model, $entityId, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Update user Authentication.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updateUserAuth($userId, array $userData)
+	public function updateUserAuth($entityId, array $entityData)
 	{
-        unset($userData['password_confirmation']);
-        $userData['password'] = bcrypt($userData['password']);
-		return $this->update($this->model, $userId, $userData);
+        unset($entityData['password_confirmation']);
+        $entityData['password'] = bcrypt($entityData['password']);
+		return $this->update($this->model, $entityId, $entityData);
 	}
 	
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Update multiple entities.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updateUsers(array $usersData)
+	public function updateUsers(array $entitiesData)
 	{
 		$usersUpdated = [];
-		foreach ($usersData as $userData)
+		foreach ($entitiesData as $entityData)
 		{
-			$user = $this->updateUser($userData->id, $userData);
+			$user = $this->updateUser($entityData->id, $entityData);
 			array_push($usersUpdated, $user);
 		}
 
@@ -146,28 +146,28 @@ class UserRepository extends Repository
 	}	
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Delete the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deleteUser($userId)
+	public function deleteUser($entityId)
 	{
 		return $this->delete($this->model, $userId);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Delete multiple entities.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deleteUsers(array $userIds)
+	public function deleteUsers(array $entityIds)
 	{
 		$deletedUsers = [];
-		foreach ($userIds as $userId)
+		foreach ($entityIds as $entityId)
 		{
-			$deletedUser = $this->deleteUser($userId);
+			$deletedUser = $this->deleteUser($entityId);
 			array_push($deletedUsers, $deletedUser);
 		}
 
