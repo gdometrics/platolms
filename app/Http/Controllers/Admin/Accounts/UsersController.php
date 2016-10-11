@@ -17,6 +17,11 @@ class UsersController extends Controller
 	|--------------------------------------------------------------------------
 	*/
 
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
 	public function __construct(UserRepository $userRepo)
 	{
 		$this->repository = $userRepo;
@@ -100,7 +105,7 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Store the newly created user
+	 * Update the newly created user
 	 *
 	 * @return Response
 	 */
