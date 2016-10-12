@@ -15,18 +15,18 @@ class CategoryRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getCategory($catIdOrIds)
+	public function getCategory($entityIdOrIds)
 	{
-		return $this->find($this->model, $catIdOrIds);
+		return $this->find($this->model, $entityIdOrIds);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -37,29 +37,29 @@ class CategoryRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get a collection by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getCategoryByIds(array $catIds = null)
+	public function getCategoriesByIds(array $entityIds = null)
 	{
-		return $this->getCategory($catIds);
+		return $this->getPost($entityIds);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get a collection by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
 	public function getCategories(array $scopes = [])
 	{
-		return $this->findAllBy($this->model, $scopes);
+		return $this->findAllBy($this->table, $scopes);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Paginate the collection.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -70,54 +70,54 @@ class CategoryRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Create an entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function createCategory(array $postData)
+	public function createCategory(array $entityData)
 	{
-		return $this->create($this->table, $postData);
+		return $this->create($this->table, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Update the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updateCategory($catId, array $postData)
+	public function updateCategory($entityId, array $entityData)
 	{
-		return $this->update($this->model, $catId, $postData);
+		return $this->update($this->model, $entityId, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Delete the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deleteCategory($catId)
+	public function deleteCategory($entityId)
 	{
-		return $this->delete($this->model, $catId);
+		return $this->delete($this->model, $entityId);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Delete multiple entities.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deleteCategories(array $catIds)
+	public function deleteCategories(array $entityIds)
 	{
-		$deletedCategories = [];
-		foreach ($catIds as $catId)
+		$deletedPosts = [];
+		foreach ($entityIds as $entityId)
 		{
-			$deletedCategory = $this->deleteCategory($catId);
-			array_push($deletedCategories, $deletedCategory);
+			$deletedPost = $this->deleteUser($entityId);
+			array_push($deletedPosts, $deletedPost);
 		}
 
-		return $deletedCategories;
+		return $deletedPosts;
 	}
 
 }

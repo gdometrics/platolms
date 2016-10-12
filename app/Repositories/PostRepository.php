@@ -15,18 +15,18 @@ class PostRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPost($postIdOrIds)
+	public function getPost($entityIdOrIds)
 	{
-		return $this->find($this->model, $postIdOrIds);
+		return $this->find($this->model, $entityIdOrIds);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get the entity by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -37,18 +37,18 @@ class PostRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get a collection by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function getPostsByIds(array $postIds = null)
+	public function getPostsByIds(array $entityIds = null)
 	{
-		return $this->getPost($postIds);
+		return $this->getPost($entityIds);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Get a collection by a field.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -59,7 +59,7 @@ class PostRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Paginate the collection.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
@@ -70,50 +70,50 @@ class PostRepository extends Repository
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Create an entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function createPost(array $postData)
+	public function createPost(array $entityData)
 	{
-		return $this->create($this->table, $postData);
+		return $this->create($this->table, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Update the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function updatePost($postId, array $postData)
+	public function updatePost($entityId, array $entityData)
 	{
-		return $this->update($this->model, $postId, $postData);
+		return $this->update($this->model, $entityId, $entityData);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Delete the entity.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deletePost($postId)
+	public function deletePost($entityId)
 	{
-		return $this->delete($this->model, $postId);
+		return $this->delete($this->model, $entityId);
 	}
 
 	/**
-	 * Get a validator for an incoming registration request.
+	 * Delete multiple entities.
 	 *
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	public function deletePosts(array $postIds)
+	public function deletePosts(array $entityIds)
 	{
 		$deletedPosts = [];
-		foreach ($postIds as $postId)
+		foreach ($entityIds as $entityId)
 		{
-			$deletedPost = $this->deletePost($postId);
+			$deletedPost = $this->deleteUser($entityId);
 			array_push($deletedPosts, $deletedPost);
 		}
 
