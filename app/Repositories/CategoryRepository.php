@@ -55,7 +55,7 @@ class CategoryRepository extends Repository
 	 */
 	public function getCategories(array $scopes = [])
 	{
-		return $this->findAllBy($this->table, $scopes);
+		return $this->findAllBy($this->model, $scopes);
 	}
 
 	/**

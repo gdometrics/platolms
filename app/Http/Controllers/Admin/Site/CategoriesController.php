@@ -35,7 +35,7 @@ class CategoriesController extends Controller
 	{
 		$menuTab = $this->menuTab;
 		$categories = $this->repository->getCategories();
-		return response()->view('admin.categories.index', compact(['categories', 'menuTab']));
+		return response()->view('admin.site.categories.index', compact(['categories', 'menuTab']));
 	}
 
 	/**
@@ -46,7 +46,7 @@ class CategoriesController extends Controller
 	public function create(Request $request)
 	{
 		$menuTab = $this->menuTab;
-	    return response()->view('admin.categories.create', compact(['menuTab', 'request']));
+	    return response()->view('admin.site.categories.create', compact(['menuTab', 'request']));
 	}
 
 	/**
@@ -75,4 +75,40 @@ class CategoriesController extends Controller
         return response()->json(['success' => true, 'category' => $newCategory]);
 	}
 
+	/**
+	 * Show an individual Category's profile
+	 *
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$category = $this->repository->getCategory($id);
+		$menuTab = $this->menuTab;
+		return response()->view('admin.site.categories.edit', compact(['category', 'menuTab']));
+	}
+
+	/**
+	 * Update the post
+	 *
+	 * @return Response
+	 */
+	public function update(Request $request, $id)
+	{
+        $validator = $this->validate($request, [
+            'title' => 'required',
+        ]);
+
+        try
+        {
+        	$updatedUser = $this->repository->updateCategory($id, $request->all());
+
+        } catch(\Exception $exception)
+        {
+            $this->flashErrorAndReturnWithMessage($exception);
+        }
+
+        // returns back with success message
+        flash()->success('The category was updated!');
+        return redirect()->action('Admin\Site\CategoriesController@edit', ['category' => $id]);
+	}
 }

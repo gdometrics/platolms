@@ -23,14 +23,16 @@
                         <tr>
                             <th>Name</th>
                             <th># of Posts</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($categories as $category)
 
                             <tr>
-                                <td><a href="">{{ $category->title }}</a></td>
+                                <td><a href="{{ route('admin.categories.edit', $category->id) }}">{{ $category->title }}</a></td>
                                 <td><a href="">{{ $category->posts->count() }}</a></td>
+                                <td><a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                             </tr>
 
                         @endforeach

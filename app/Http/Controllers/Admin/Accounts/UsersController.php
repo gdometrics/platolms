@@ -40,7 +40,7 @@ class UsersController extends Controller
 		// $users = $this->repository->getUsers();
 		$menuTab = $this->menuTab;
 		$title = 'Users';
-		return response()->view('admin.users.index', compact(['users', 'title', 'roles', 'menuTab']));
+		return response()->view('admin.accounts.users.index', compact(['users', 'title', 'roles', 'menuTab']));
 	}
 
 	/**
@@ -56,7 +56,7 @@ class UsersController extends Controller
 		$roles = \App\Models\Role::all();
 		$menuTab = 'admins';
 		$title = 'Admins';
-		return response()->view('admin.users.index', compact(['users', 'title', 'roles', 'menuTab']));
+		return response()->view('admin.accounts.users.index', compact(['users', 'title', 'roles', 'menuTab']));
 	}
 
 	/**
@@ -68,7 +68,7 @@ class UsersController extends Controller
 	{
 		$user = $this->repository->getUser($id);
 		$menuTab = $this->menuTab;
-		return response()->view('admin.users.show', compact(['user', 'menuTab']));
+		return response()->view('admin.accounts.users.show', compact(['user', 'menuTab']));
 	}
 
 	/**
@@ -79,7 +79,7 @@ class UsersController extends Controller
 	public function create()
 	{
 		$menuTab = $this->menuTab;
-	    return response()->view('admin.users.create', compact(['menuTab']));
+	    return response()->view('admin.accounts.users.create', compact(['menuTab']));
 	}
 
 	/**
@@ -118,7 +118,7 @@ class UsersController extends Controller
 	{
 		$user = $this->repository->getUser($id);
 		$menuTab = $this->menuTab;
-		return response()->view('admin.users.edit', compact(['user', 'menuTab']));
+		return response()->view('admin.accounts.users.edit', compact(['user', 'menuTab']));
 	}
 
 	/**
@@ -160,7 +160,7 @@ class UsersController extends Controller
 	{
 		$user = $this->repository->getUser($id);
 		$menuTab = $this->menuTab;
-		return response()->view('admin.users.authentication', compact(['user', 'menuTab']));
+		return response()->view('admin.accounts.users.authentication', compact(['user', 'menuTab']));
 	}
 
 	/**
@@ -201,7 +201,7 @@ class UsersController extends Controller
 	{
 		$user = $this->repository->getUser($id);
 		$menuTab = $this->menuTab;
-		return response()->view('admin.users.avatar', compact(['user', 'menuTab']));
+		return response()->view('admin.accounts.users.avatar', compact(['user', 'menuTab']));
 	}
 
 	/**
@@ -247,7 +247,7 @@ class UsersController extends Controller
 	public function importUsers()
 	{
 		$menuTab = $this->menuTab;
-		return response()->view('admin.users.import', compact(['menuTab']));
+		return response()->view('admin.accounts.users.import', compact(['menuTab']));
 	}
 
 	/**

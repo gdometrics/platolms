@@ -39,7 +39,7 @@ class PostsController extends Controller
 		    	})->paginate();
         }
 
-		return response()->view('admin.posts.index', compact(['posts', 'menuTab', 'request']));
+		return response()->view('admin.site.posts.index', compact(['posts', 'menuTab', 'request']));
 	}
 
 	/**
@@ -50,7 +50,7 @@ class PostsController extends Controller
 	public function create(Request $request)
 	{
 		$menuTab = $this->menuTab;
-	    return response()->view('admin.posts.create', compact(['menuTab', 'request']));
+	    return response()->view('admin.site.posts.create', compact(['menuTab', 'request']));
 	}
 
 	/**
